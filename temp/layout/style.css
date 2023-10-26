@@ -1,0 +1,25 @@
+:root{
+    --cor-fundo :  rgb(34, 41, 37);
+    --cor-hover : rgb(118, 180, 145);
+    --cor-primaria : rgb(231, 241, 236);
+}
+/* menu*/
+
+
+/* sub menu */
+.dp-menu a:hover{
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    background-color: var(--cor-hover);
+
+    background-color: aqua;
+    color:white;
+}
+.dp-menu ul {
+    display: block;
+}
+.dp-menu-configuracao:hover {
+    background-color: aqua;
+    color:white;
+}
