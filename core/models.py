@@ -1,50 +1,68 @@
 from os import link
 from django.db import models
 
-class Narrativa(models.Model):
-    titulo = models.CharField('Titulo',max_length=100)
-    descricao = models.CharField('Descricao',max_length=150)
-    foto = models.ImageField('Foto')
-    autor = models.CharField('Autor', max_length=50)
-    anexo = models.CharField('Anexo')
-    link = models.CharField('Link')
-
-    def _str_(self):
-        return "{} ({})".format(self.titulo, self.descricao, 
-                                self.foto, self.autor, self.anexo, self.link)
-    
-class Indicadores_narrativa(models.Model):
-    qtd_Personagens_total = models.IntegerField('Quantidade de Personagens Total ')
-    qtd_Personagens_reais = models.IntegerField('Quantidade de Personagens Reais ')
-    qtd_Personagens_imaginarios = models.IntegerField('Quantidade de Personagens Imaginarios')
-    qtd_Personagens_criancas = models.IntegerField('Quantidade de Personagens Crianças ')
-    qtd_Personagens_idosos = models.IntegerField('Quantidade de Personagens Idosos')
-
-class Tipos_narrativa(models.Model):
+class Tipo_Narrativa(models.Model):
     nome = models.CharField('Nome', max_length=50)
-    conto = models.CharField('Conto', max_length=50)
-    lenda = models.CharField('Lenda', max_length=100)
+    def __str__(self):
+        return self.nome
+
+class Estilo_Narrativa(models.Model):
+    nome = models.CharField('Nome', max_length=50)
+    def __str__(self):
+        return self.nome
+
+class Narrativa(models.Model):
+    titulo = models.CharField('Titulo', max_length=300)
+    descricao = models.TextField('Descricao')
+    foto = models.ImageField('Foto', null=True)
+    autor = models.CharField('Autor(es)', max_length=200)
+    anexo = models.FileField('Anexo', null=True)
+    link = models.CharField('Link', null=True, max_length=500)
+    tipo_narrativa = models.ForeignKey(Tipo_Narrativa, on_delete=models.PROTECT)
+    estilo_narrativa = models.ManyToManyField(Estilo_Narrativa)
+    def __str__(self):
+        return self.titulo
+
+class Local_Narrativa(models.Model):
+    nome = models.CharField('Nome', max_length=50)
+    def __str__(self):
+        return self.nome
+
+class Turno_Narativa(models.Model):
+    nome = models.CharField('Nome', max_length=50)
+    def __str__(self):
+        return self.nome
+
+class Periodo_Narrativa(models.Model):
+    nome = models.CharField('Nome', max_length=50)
+    def __str__(self):
+        return self.nome
+
+class Publico_Destino(models.Model):
+    nome = models.CharField('Nome', max_length=50)
+    def __str__(self):
+        return self.nome
+
+class Indicadores_Narrativa(models.Model):
+    qtd_Personagens_total = models.IntegerField('Quantidade de Personagens Total')
+    qtd_Personagens_reais = models.IntegerField('Quantidade de Personagens Reais')
+    qtd_Personagens_imaginarios = models.IntegerField('Quantidade de Personagens Imaginarios')
+    qtd_Personagens_criancas = models.IntegerField('Quantidade de Personagens Crianças')
+    qtd_Personagens_adultos = models.IntegerField('Quantidade de Personagens Adultos')
+    qtd_Personagens_idosos = models.IntegerField('Quantidade de Personagens Idosos')
+    narrativa = models.ForeignKey(Narrativa, on_delete=models.PROTECT)
+    locais = models.ManyToManyField(Local_Narrativa)
+    turnos = models.ManyToManyField(Turno_Narativa)
+    publicos = models.ManyToManyField(Publico_Destino)
+    periodo = models.ForeignKey(Periodo_Narrativa, on_delete=models.PROTECT)
+    def __str__(self):
+        return "Indicadores da Narrativa: ",self.narrativa.titulo
+
+
+
+
+
+
     
-class Estilo_narrativa(models.Model):
-    acao = models.TextField('Acao', max_length=150)
-    aventura = models.TextField('Aventura', max_length=150)
-    terror = models.TextField('Terror', max_length=150)
 
-class Locais_narrativas(models.Model):
-    rural = models.CharField('Rural', max_length=50)
-    urbano = models.CharField('Urbano', max_length=50)
-    litoral = models.CharField('Litoral', max_length=50)
-    mangue = models.CharField('Mangue', max_length=50)
 
-class turno_narativa(models.Model):
-    dia = models.CharField('Dia', max_length=50)
-    noite = models.CharField('Noite', max_length=50)
-
-class periodo_narrativa(models.Model):
-    ano = models.DateField('Ano', max_length=50)
-    seculo = models.DateField('Seculo', max_length=50)
-
-class publico_destino(models.Model):
-    infantil = models.CharField('Infantil', max_length=100)
-    adulto = models.CharField('Adulto', max_length=100)
-    idoso = models.CharField('Idoso', max_length=100)
