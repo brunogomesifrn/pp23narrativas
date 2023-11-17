@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Narrativas</h1>
+    {% for indicador in indicadores%}
+    <p>Título da Narrativa: {{indicador.narrativa.titulo}}</p>
+    <p>Quantidade de Personagens Reais: {{indicador.qtd_personagens_reais}}</p>
+    <p>Quantidade de Personagens Imaginários: {{indicador.qtd_personagens_imaginarios}}</p>
+    {% empty %}
+    <p>Nenhuma Narrativa</p>
+    {% endfor%}
+</body>
+</html>
