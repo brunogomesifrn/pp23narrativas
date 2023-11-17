@@ -27,19 +27,19 @@ insert into core_local_narrativa (id, nome) values (4, 'Mangue');
 insert into core_turno (id, nome) values (1, 'Dia');
 insert into core_turno (id, nome) values (2, 'Noite');
 
-insert into core_perido_narrativa (id, nome) values (1, '');
+insert into core_periodo_narrativa (id, nome) values (1, '');
 insert into core_periodo_narrativa (id, nome) values (2, '');
 
-insert into cor_publico_destino (id, nome) values (1, 'Criança');
-insert into cor_publico_destino (id, nome) values (2, 'Adulto');
-insert into cor_publico_destino (id, nome) values (3, 'Idoso');
+insert into core_publico_destino (id, nome) values (1, 'Criança');
+insert into core_publico_destino (id, nome) values (2, 'Adulto');
+insert into core_publico_destino (id, nome) values (3, 'Idoso');
 
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (1, 'Personagens Total');
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (2, 'Personagens Reais');
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (3, 'Personagens Imaginarios');
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (4, 'Personagens Crianças');
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (5, 'Personagens Adultos');
-insert into cor_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (6, 'Personagens Idoso');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (1, 'Personagens Total');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (2, 'Personagens Reais');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (3, 'Personagens Imaginarios');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (4, 'Personagens Crianças');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (5, 'Personagens Adultos');
+insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (6, 'Personagens Idoso');
 
 
 
