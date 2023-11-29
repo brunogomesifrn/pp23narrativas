@@ -26,10 +26,11 @@ insert into core_local_narrativa (id, nome) values (3, 'Litoral');
 insert into core_local_narrativa (id, nome) values (4, 'Mangue');
 insert into core_local_narrativa (id, nome) values (5, 'Floresta');
 
-insert into core_turno_narativa (id, nome) values (1, 'Dia');
-insert into core_turno_narativa (id, nome) values (2, 'Noite');
+insert into core_turno_narrativa (id, nome) values (1, 'Dia');
+insert into core_turno_narrativa (id, nome) values (2, 'Noite');
+insert into core_turno_narrativa (id, nome) values (3, 'Dia e Noite');
 
-insert into core_periodo_narrativa (id, nome) values (1, '');
+insert into core_periodo_narrativa (id, nome) values (1, 'Não definindo');
 insert into core_periodo_narrativa (id, nome) values (2, '');
 
 insert into core_publico_destino (id, nome) values (1, 'Criança');
@@ -37,14 +38,14 @@ insert into core_publico_destino (id, nome) values (2, 'Adulto');
 insert into core_publico_destino (id, nome) values (3, 'Idoso');
 insert into core_publico_destino (id, nome) values (4, 'Todos');
 
-
+/*
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (1, 'Personagens Reais');
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (2, 'Personagens Imaginarios');
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (3, 'Personagens Crianças');
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (4, 'Personagens Adultos');
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (5, 'Personagens Idoso');
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (6, 'Personagens Animal');
-
+*/
 
 /* Saci */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
@@ -53,70 +54,65 @@ qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id)
 values (1, 0, 1, 1, 0, 0, 0, 1, 1);
 
 insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,2,3);
+(id, narrativa_id, estilo_narrativa_id) values (1,1,2);
 
 insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 3, 5)
+(id, indicadores_narrativa_id, local_narrativa_id) values (1, 1, 5);
 
 insert into core_indicadores_narrativa_turnos
-(id, indicadores_narrativa_id, turno_narativa_id) values (1, 3, 1)
+(id, indicadores_narrativa_id, turno_narrativa_id) values (1, 1, 3);
 
 insert into core_indicadores_narrativa_publicos
-(id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
+(id, indicadores_narrativa_id, publico_destino_id) values (1, 1, 4);
+
 
 /* Comadre Fulozinha */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
-values (1, 0, 1, 1, 1, 0, 1, 2, 1);
+values (2, 1, 1, 1, 1, 0, 1, 2, 3);
 
 insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,2,4);
+(id, narrativa_id, estilo_narrativa_id) values (2,2,3);
 
 insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,2,2);
+(id, narrativa_id, estilo_narrativa_id) values (3,2,1);
 
 insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 3, 4)
+(id, indicadores_narrativa_id, local_narrativa_id) values (2, 2, 4);
 
 insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 3, 5)
+(id, indicadores_narrativa_id, local_narrativa_id) values (3, 2, 5);
 
 insert into core_indicadores_narrativa_turnos
-(id, indicadores_narrativa_id, turno_narativa_id) values (1, 3, 1)
+(id, indicadores_narrativa_id, turno_narrativa_id) values (2, 2, 3);
 
 insert into core_indicadores_narrativa_publicos
-(id, indicadores_narrativa_id, publico_destino_id) values (1, 1, 4)
+(id, indicadores_narrativa_id, publico_destino_id) values (2, 2, 2);
+
+insert into core_indicadores_narrativa_publicos
+(id, indicadores_narrativa_id, publico_destino_id) values (3, 2, 3);
 
 /* Botijas de Ouro */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
-values (1, 1, 1, 0, 1, 1, 0, 3, 1);
+values (3, 1, 1, 0, 1, 1, 0, 3, 1);
 
 insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,3,1);
-
-insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,3,3);
+(id, narrativa_id, estilo_narrativa_id) values (4,3,1);
 
 insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 1, 1)
-
-insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 2, 1)
-
-insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 4, 1)
-
-insert into core_indicadores_narrativa_locais
-(id, indicadores_narrativa_id, local_narrativa_id) values (1, 5, 1)
+(id, indicadores_narrativa_id, local_narrativa_id) values (4, 3, 1);
 
 insert into core_indicadores_narrativa_turnos
-(id, indicadores_narrativa_id, turno_narativa_id) values (1, 1, 2)
+(id, indicadores_narrativa_id, turno_narrativa_id) values (3, 3, 2);
 
 insert into core_indicadores_narrativa_publicos
-(id, indicadores_narrativa_id, publico_destino_id) values (1, 1, 4)
+(id, indicadores_narrativa_id, publico_destino_id) values (4, 3, 2);
+
+insert into core_indicadores_narrativa_publicos
+(id, indicadores_narrativa_id, publico_destino_id) values (5, 3, 3);
 
 /* Procissão das Almas */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 

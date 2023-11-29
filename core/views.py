@@ -15,7 +15,8 @@ def narrativas(request):
         with open('Narrativas.csv', 'w') as csvfile: 
             writer = csv.DictWriter(csvfile) 
             writer.writeheader() 
-            writer.writerows(lista_narrativas) 
+            #writer.writerows(lista_narrativas) 
+            writer.writerows("Teste") 
     contexto = {
         'indicadores': indicadores
     }
