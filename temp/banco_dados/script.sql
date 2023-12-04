@@ -28,12 +28,8 @@ insert into core_local_narrativa (id, nome) values (5, 'Floresta');
 
 insert into core_turno_narrativa (id, nome) values (1, 'Dia');
 insert into core_turno_narrativa (id, nome) values (2, 'Noite');
-<<<<<<< HEAD
-=======
-insert into core_turno_narrativa (id, nome) values (3, 'Dia e Noite');
->>>>>>> a4ad7b65a89cc12e423bc28a490a5d25869faf85
 
-insert into core_periodo_narrativa (id, nome) values (1, 'Não definindo');
+insert into core_periodo_narrativa (id, nome) values (1, 'Não definido');
 insert into core_periodo_narrativa (id, nome) values (2, '');
 
 insert into core_publico_destino (id, nome) values (1, 'Criança');
