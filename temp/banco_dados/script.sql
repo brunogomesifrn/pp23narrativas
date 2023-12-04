@@ -26,8 +26,8 @@ insert into core_local_narrativa (id, nome) values (3, 'Litoral');
 insert into core_local_narrativa (id, nome) values (4, 'Mangue');
 insert into core_local_narrativa (id, nome) values (5, 'Floresta');
 
-insert into core_turno_narativa (id, nome) values (1, 'Dia');
-insert into core_turno_narativa (id, nome) values (2, 'Noite');
+insert into core_turno_narrativa (id, nome) values (1, 'Dia');
+insert into core_turno_narrativa (id, nome) values (2, 'Noite');
 
 insert into core_periodo_narrativa (id, nome) values (1, '');
 insert into core_periodo_narrativa (id, nome) values (2, '');
@@ -46,7 +46,7 @@ insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, perio
 insert into core_indicadores_narrativa (id, qtd_personagens, narrativa_id, periodo_narrativa_id) values (6, 'Personagens Animal');
 
 
-/* Saci */
+/* 1 Saci */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -64,7 +64,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Comadre Fulozinha */
+/* 2 Comadre Fulozinha */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -88,7 +88,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 1, 4)
 
-/* Botijas de Ouro */
+/* 3 Botijas de Ouro */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -118,7 +118,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 1, 4)
 
-/* Procissão das Almas */
+/* 4 Procissao das Almas */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -138,7 +138,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 2, 4)
 
-/* Batatão */
+/* 5 Batatao */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -156,7 +156,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Pesador */
+/* 6 Pesador */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -174,7 +174,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Corpo Seco */
+/* 7 Corpo Seco */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -192,7 +192,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Mula sem Cabeça */
+/* 8 Mula sem Cabeca */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -210,7 +210,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Vitoria-Regia */
+/* 9 Vitoria-Regia */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -228,7 +228,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/*Lobsomen */
+/* 10 Lobsomen */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -246,7 +246,7 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Boto-cor-de-Rosa */
+/* 11 Boto-cor-de-Rosa */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
@@ -264,14 +264,14 @@ insert into core_indicadores_narrativa_turnos
 insert into core_indicadores_narrativa_publicos
 (id, indicadores_narrativa_id, publico_destino_id) values (1, 3, 1)
 
-/* Iara */
+/* 12 Iara */
 insert into core_indicadores_narrativa (id, qtd_personagens_reais, 
 qtd_personagens_imaginarios, qtd_personagens_criancas, qtd_personagens_adultos, 
 qtd_personagens_idosos, qtd_personagens_animais, narrativa_id, periodo_id) 
 values (1, 1, 1, 0, 1, 0, 0, 12, 1);
 
 insert into core_narrativa_estilo_narrativa 
-(id, narrativa_id, estilo_narrativa_id) values (1,2,3);
+(id, narrativa_id, estilo_narrativa_id) values (1,12,1);
 
 insert into core_indicadores_narrativa_locais
 (id, indicadores_narrativa_id, local_narrativa_id) values (1, 3, 5)
