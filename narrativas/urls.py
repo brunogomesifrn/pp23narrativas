@@ -21,5 +21,5 @@ from core.views import narrativas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('narrativas/', narrativas, name='narrativas'),
+    path('narrativas_dataset/', narrativas, name='narrativas'),
 ]

@@ -7,13 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Narrativas</h1>
-    {% for indicador in indicadores%}
-    <p>Título da Narrativa: {{indicador.narrativa.titulo}}</p>
-    <p>Quantidade de Personagens Reais: {{indicador.qtd_personagens_reais}}</p>
-    <p>Quantidade de Personagens Imaginários: {{indicador.qtd_personagens_imaginarios}}</p>
-    {% empty %}
-    <p>Nenhuma Narrativa</p>
-    {% endfor%}
+    <h1>Dataset Narrativas</h1>
+    <a href="">Download .csv</a>
+    <br />
+    <h1>Conteúdo</h1>
+    <p>{{narrativas}}</p>
 </body>
 </html>
