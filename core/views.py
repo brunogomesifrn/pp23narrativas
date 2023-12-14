@@ -5,7 +5,73 @@ from .models import Indicadores_Narrativa
 import csv 
 import pandas as pd 
 
-def narrativas(request):
+# =========== CRUD Tipo Narrativa ==============
+
+def listar_tiponarrativas(request):
+    tipos = Tipo_Narrativa.objects.all()
+    contexto = {
+        'todos_tipos': tipos
+    }
+    return render(request, 'tipos_narrativas.html', contexto)
+
+def cadastrar_tiponarrativas(request):
+    form = Tipo_NarrativaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_tiponarrativas')
+    contexto = {
+        'form_tipos': form
+    }
+    return render(request, 'tipos_narrativas_adicionar.html', contexto)
+
+
+def editar_tiponarrativas(request, id):
+    tipo = Tipo_Narrativa.objects.get(pk=id)
+    form = Tipo_NarrativaForm(request.POST or None, instance=tipo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_tiponarrativas')
+    contexto = {
+        'form_tipos': form
+    }
+    return render(request, 'tipos_narrativas_adicionar.html', contexto)
+
+
+def remover_tiponarrativas(request, id):
+    remover =  Tipo_Narrativa.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_tiponarrativas')
+
+
+# =========== CRUD Estilo Narrativa ==============
+
+
+
+# =========== CRUD Local_Narrativa ==============
+
+
+
+# =========== CRUD Turno_Narrativa ==============
+
+
+
+# =========== CRUD Periodo_Narrativa ==============
+
+
+
+# =========== CRUD Publico_Destino ==============
+
+
+
+# =========== CRUD Narrativa ==============
+#### Esse deixar para fazer com o prof ###
+
+
+
+
+# =========== GERAÇÃO DE DATASET ===============
+
+def narrativas_dataset(request):
     indicadores = Indicadores_Narrativa.objects.all()
 
     narrativas = {}
@@ -130,10 +196,8 @@ def narrativas(request):
 
     narrativas['Periodo'] = periodos
 
-
-
     narrativas = pd.DataFrame(narrativas)
-    
+
 
     narrativas.to_csv('./Narrativas.csv', index = None) 
 
@@ -152,45 +216,4 @@ def narrativas(request):
         'narrativas_dict': narrativas.to_dict(),
         'narrativas': narrativas.to_csv()
     }
-    return render(request, 'narrativas1.html', contexto)
-
-def listar_tiponarrativas(request):
-    tipos = Tipo_Narrativa.objects.all()
-    contexto = {
-        'todos_tipos': tipos
-    }
-    
-    return render(request, 'narrativas1.html', contexto)
-
-def cadastrar_tiponarrativas(request):
-    form = Tipo_NarrativaForm(request.POST or None)
-
-    if form.is_valid():
-        form.save()
-        return redirect('listar_tiponarrativas')
-
-    contexto = {
-        'form_tipos': form
-    }
-
-    return render(request, 'narrativas1_cadastrar.html', contexto)
-
-def editar_tiponarrativas(request, id):
-    editar = Tipo_Narrativa.objects.get(pk=id)
-
-    form = Tipo_NarrativaForm(request.POST or None, instance=Tipo_Narrativa)
-
-    if form.is_valid():
-        form.save()
-        return redirect('listar_tiponarrativas')
-    
-    contexto = {
-        'form_tipos': form
-    }
-
-    return render(request, 'narrativas1_cadastrar.html', contexto)
-
-def remover_tiponarrativas(request):
-    remover =  Tipo_Narrativa.objects.get(pk=id)
-    Tipo_Narrativa.delete()
-    return redirect('listar_tiponarrativas')
+    return render(request, 'narrativas_dataset.html', contexto)

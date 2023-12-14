@@ -17,14 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from core.views import listar_tiponarrativas, cadastrar_tiponarrativas, editar_tiponarrativas, remover_tiponarrativas
-
-from core.views import narrativas
+from core.views import narrativas_dataset
 
 urlpatterns = [
+
+    # Trabalho Dataset
+    path('narrativas_dataset/', narrativas_dataset, name='narrativas_dataset'),
+
+    # CRUD Tipo Narrativa
     path('listar_tipo/', listar_tiponarrativas, name='listar_tiponarrativas'),
     path('cadastrar_tipo/', cadastrar_tiponarrativas, name='cadastrar_tiponarrativas'),
     path('editar_tipo/<int:id>/', editar_tiponarrativas, name='editar_tiponarrativas'),
     path('remover_tipo/<int:id>', remover_tiponarrativas, name='remover_tiponarrativas'),
+
+
+
+
     path('admin/', admin.site.urls),
-    path('narrativas_dataset/', narrativas, name='narrativas'),
+    
 ]

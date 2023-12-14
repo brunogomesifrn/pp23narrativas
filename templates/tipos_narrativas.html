@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h1>Narrativas</h1>
+    <p><a href="{% url 'cadastrar_tiponarrativas' %}"> CADASTRAR </a></p>
+    
+    {% for tipo in todos_tipos %}
+    <p>
+        Título da Narrativa: {{tipo.nome}}
+        <a href="{% url 'editar_tiponarrativas'  tipo.id %}"> EDITAR </a>
+        <a href="{% url 'remover_tiponarrativas' tipo.id %}"> REMOVER </a>
+    </p>
+    {% empty %}
+    <p>Nenhuma Narrativa Cadastrada</p>
+    {% endfor%}
+</body>
+</html>
