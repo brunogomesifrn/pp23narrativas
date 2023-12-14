@@ -26,5 +26,5 @@ urlpatterns = [
     path('editar_tipo/<int:id>/', editar_tiponarrativas, name='editar_tiponarrativas'),
     path('remover_tipo/<int:id>', remover_tiponarrativas, name='remover_tiponarrativas'),
     path('admin/', admin.site.urls),
-    path('narrativas/', narrativas, name='narrativas'),
+    path('narrativas_dataset/', narrativas, name='narrativas'),
 ]

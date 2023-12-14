@@ -49,7 +49,7 @@ class Indicadores_Narrativa(models.Model):
     qtd_personagens_criancas = models.IntegerField('Quantidade de Personagens Crianças')
     qtd_personagens_adultos = models.IntegerField('Quantidade de Personagens Adultos')
     qtd_personagens_idosos = models.IntegerField('Quantidade de Personagens Idosos')
-    qtd_personagens_animais = models.IntegerField('Quantidade de Personagens Idosos')
+    qtd_personagens_animais = models.IntegerField('Quantidade de Personagens Animais')
     narrativa = models.ForeignKey(Narrativa, on_delete=models.PROTECT)
     locais = models.ManyToManyField(Local_Narrativa)
     turnos = models.ManyToManyField(Turno_Narrativa)
