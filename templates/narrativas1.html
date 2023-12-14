@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body> 
     <h1>Narrativas</h1>
-    {% for indicador in indicadores%}
-    <p>Título da Narrativa: {{indicador.narrativa.titulo}}</p>
+    <p><a href="{% url 'cadastrar_tiponarrativas' %}"> CADASTRAR </a></p>
+    {% for narrativas1 in todos_tipos %}
+    <p>
+        Título da Narrativa: {{narrativas1.titulo}}
+        <a href="{% url 'editar_tiponarrativas'  Tipo_Narrativa.id %}"> EDITAR </a>
+        <a href="{% url 'remover_tiponarrativas' Tipo_Narrativa.id %}"> REMOVER </a>
+    </p>
     <p>Quantidade de Personagens Reais: {{indicador.qtd_personagens_reais}}</p>
     <p>Quantidade de Personagens Imaginários: {{indicador.qtd_personagens_imaginarios}}</p>
     {% empty %}
-    <p>Nenhuma Narrativa</p>
+    <p>Nenhuma Narrativa Cadastrada</p>
     {% endfor%}
 </body>
 </html>
