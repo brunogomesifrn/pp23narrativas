@@ -147,6 +147,7 @@ def narrativas(request):
     '''
     contexto = {
         'indicadores': indicadores,
-        'narrativas': narrativas.to_dict()
+        'narrativas_dict': narrativas.to_dict(),
+        'narrativas': narrativas.to_csv()
     }
     return render(request, 'narrativas.html', contexto)
