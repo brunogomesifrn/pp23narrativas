@@ -1,6 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Tipo_Narrativa
 from .forms import Tipo_NarrativaForm
+from .models import Estilo_Narrativa
+from .forms import Estilo_Narrativaform
+from .models import Local_Narrativa
+from .forms import Local_Narrativaform
+from .models import Turno_Narrativa
+from .forms import Turno_Narrativaform
+from .models import Periodo_Narrativa
+from .forms import Periodo_Narrativaform
+from .models import Publico_Destino
+from .forms import Publico_Destinoform
 from .models import Indicadores_Narrativa
 import csv 
 import pandas as pd 
@@ -45,23 +55,197 @@ def remover_tiponarrativas(request, id):
 
 # =========== CRUD Estilo Narrativa ==============
 
+def listar_estilonarrativas(request):
+    estilos = Estilo_Narrativa.objects.all()
+    contexto = {
+        'todos_estilos': estilos
+    }
+    return render(request, 'estilos_narrativas.html', contexto)
+
+
+def cadastrar_estilonarrativas(request):
+    form = Estilo_Narrativaform(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_estilonarrativas')
+    contexto = {
+        'form_estilos': form
+    }
+    return render(request, 'estilos_narrativas_adicionar.html', contexto)
+
+
+def editar_estilonarrativas(request, id):
+    estilo = Estilo_Narrativa.objects.get(pk=id)
+    form = Estilo_Narrativaform(request.POST or None, instance=estilo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_estilonarrativas')
+    contexto = {
+        'form_estilos': form
+    }
+    return render(request, 'estilos_narrativas_adicionar.html', contexto)
+
+
+def remover_estilonarrativas(request, id):
+    remover = Estilo_Narrativa.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_estilonarrativas')
 
 
 # =========== CRUD Local_Narrativa ==============
 
+def listar_localnarrativas(request):
+    locais = Local_Narrativa.objects.all()
+    contexto = {
+        'todos_locais': locais
+    }
+    return render(request, 'locais_narrativas.html', contexto)
+
+
+def cadastrar_localnarrativas(request):
+    form = Local_Narrativaform(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_localnarrativas')
+    contexto = {
+        'form_locais': form
+    }
+    return render(request, 'locais_narrativas_adicionar.html', contexto)
+
+
+def editar_localnarrativas(request, id):
+    local = Local_Narrativa.objects.get(pk=id)
+    form = Local_Narrativaform(request.POST or None, instance=local)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_localnarrativas')
+    contexto = {
+        'form_locais': form
+    }
+    return render(request, 'locais_narrativas_adicionar.html', contexto)
+
+
+def remover_localnarrativas(request, id):
+    remover = Local_Narrativa.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_localnarrativas')
 
 
 # =========== CRUD Turno_Narrativa ==============
 
+def listar_turnonarrativas(request):
+    turnos = Turno_Narrativa.objects.all()
+    contexto = {
+        'todos_turnos': turnos
+    }
+    return render(request, 'turnos_narrativas.html', contexto)
+
+
+def cadastrar_turnonarrativas(request):
+    form = Turno_Narrativaform(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_turnonarrativas')
+    contexto = {
+        'form_turnos': form
+    }
+    return render(request, 'turnos_narrativas_adicionar.html', contexto)
+
+
+def editar_turnonarrativas(request, id):
+    turno = Turno_Narrativa.objects.get(pk=id)
+    form = Turno_Narrativaform(request.POST or None, instance=turno)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_turnonarrativas')
+    contexto = {
+        'form_turnos': form
+    }
+    return render(request, 'turnos_narrativas_adicionar.html', contexto)
+
+
+def remover_turnonarrativas(request, id):
+    remover = Turno_Narrativa.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_turnonarrativas')
 
 
 # =========== CRUD Periodo_Narrativa ==============
 
+def listar_periodonarrativas(request):
+    periodos = Periodo_Narrativa.objects.all()
+    contexto = {
+        'todos_periodos': periodos
+    }
+    return render(request, 'periodos_narrativas.html', contexto)
+
+
+def cadastrar_periodonarrativas(request):
+    form = Periodo_Narrativaform(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodonarrativas')
+    contexto = {
+        'form_periodos': form
+    }
+    return render(request, 'periodos_narrativas_adicionar.html', contexto)
+
+
+def editar_periodonarrativas(request, id):
+    periodo = Periodo_Narrativa.objects.get(pk=id)
+    form = Periodo_Narrativaform(request.POST or None, instance=periodo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodonarrativas')
+    contexto = {
+        'form_periodos': form
+    }
+    return render(request, 'periodos_narrativas_adicionar.html', contexto)
+
+
+def remover_periodonarrativas(request, id):
+    remover = Periodo_Narrativa.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_periodonarrativas')
 
 
 # =========== CRUD Publico_Destino ==============
 
+def listar_publicodestinos(request):
+    publicos = Publico_Destino.objects.all()
+    contexto = {
+        'todos_publicos': publicos
+    }
+    return render(request, 'publicos_destinos.html', contexto)
 
+
+def cadastrar_publicodestinos(request):
+    form = Publico_Destinoform(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_publicodestinos')
+    contexto = {
+        'form_publicos': form
+    }
+    return render(request, 'publicos_destinos_adicionar.html', contexto)
+
+
+def editar_publicodestinos(request, id):
+    publico = Publico_Destino.objects.get(pk=id)
+    form = Publico_Destinoform(request.POST or None, instance=publico)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_publicodestinos')
+    contexto = {
+        'form_publicos': form
+    }
+    return render(request, 'publicos_destinos_adicionar.html', contexto)
+
+
+def remover_publicodestinos(request, id):
+    remover = Publico_Destino.objects.get(pk=id)
+    remover.delete()
+    return redirect('listar_publicodestinos')
 
 # =========== CRUD Narrativa ==============
 #### Esse deixar para fazer com o prof ###

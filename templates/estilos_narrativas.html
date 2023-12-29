@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Estilos</h1>
+    <P><a href="{% url 'cadastrar_estilonarrativa' %}"> CADASTRAR </a></P>
+    <p> Listagem de Estilos de Narrativas: </p>
+    {% for estilo in todos_estilos %}
+    <p>
+        Título: {{estilo.nome}}
+        | <a href="{% url 'editar_estilonarrativas' estilo.id %}"> EDITAR </a>
+        | <a href="{% url 'remover_estilonarrativas' estilo.id %}"> REMOVER </a>
+    </p>
+    {% empty %}
+    <p> Nenhum Estilo Cadastrado</p>
+    {% endfor %}
+</body>
+</html>
