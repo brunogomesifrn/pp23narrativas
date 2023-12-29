@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Turno</h1>
+    <p><a href="{% url 'cadastrar_turnonarrativas' %}"> CADASTRAR </a></p>
+    <p> Listagem de Turnos: </p>
+    {% for turno in todos_turnos %}
+    <p>
+        Título: {{turno.nome}}
+        | <a href="{% url 'editar_turnonarrativas' turno.id %}"> EDITAR </a>
+        | <a href="{% url 'remover_turnonarrativas' turno.id %}"> REMOVER </a>
+    </p>
+    {% empty %}
+    <p> Nenhum Turno Cadastrado </p>
+    {% endfor %}
+</body>
+</html>

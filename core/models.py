@@ -59,7 +59,7 @@ class Indicadores_Narrativa(models.Model):
         return "Indicadores da Narrativa: ",self.narrativa.titulo
 
 
-
+ 
 
 
 

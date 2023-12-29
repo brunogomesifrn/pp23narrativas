@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body> 
-    <h1>Narrativas</h1>
+    <h1>Tipos</h1>
     <p><a href="{% url 'cadastrar_tiponarrativas' %}"> CADASTRAR </a></p>
     
     {% for tipo in todos_tipos %}
@@ -17,7 +17,7 @@
         <a href="{% url 'remover_tiponarrativas' tipo.id %}"> REMOVER </a>
     </p>
     {% empty %}
-    <p>Nenhuma Narrativa Cadastrada</p>
+    <p>Nenhum Tipo Cadastrado</p>
     {% endfor%}
 </body>
 </html>
