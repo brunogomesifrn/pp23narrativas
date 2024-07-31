@@ -23,9 +23,14 @@ from core.views import listar_turnonarrativas, cadastrar_turnonarrativas, editar
 from core.views import listar_periodonarrativas, cadastrar_periodonarrativas, editar_periodonarrativas, remover_periodonarrativas
 from core.views import listar_publicodestinos, cadastrar_publicodestinos, editar_publicodestinos, remover_publicodestinos
 from core.views import narrativas_dataset
+from core.views import dashboard, grafico_personagens
 
 urlpatterns = [
 
+    # DASHBPARD
+    path('dashboard/', dashboard, name='dashboard'),
+    path('grafico_personagens', grafico_personagens, name='qtd_personagens_reais'),
+    
     # Trabalho Dataset
     path('narrativas_dataset/', narrativas_dataset, name='narrativas_dataset'),
 

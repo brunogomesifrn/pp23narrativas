@@ -15,6 +15,30 @@ from .models import Indicadores_Narrativa
 import csv 
 import pandas as pd 
 
+
+# =========== DASHBOARD ==============
+
+def dashboard(request):
+    return render(request, 'dashboard\index.html')
+
+
+def grafico_personagens(request):
+    indicadores = Indicadores_Narrativa.objects.all()
+    #qtd_reais = Indicadores_Narrativa.objects.all().aaggregate(sum('qtd_personagens_reais'))['total']
+    
+    qtd_reais = 0
+    qtd_imaginarios = 0
+    for indicador in indicadores:
+        qtd_reais += indicador.qtd_personagens_reais
+        qtd_imaginarios += indicador.qtd_personagens_imaginarios
+        
+    contexto = {
+        'indicadores': indicadores,
+        'qtd_reais': qtd_reais,
+        'qtd_imaginarios': qtd_imaginarios
+    }
+    return render(request, 'dashboard\grafico_personagens.html', contexto)
+
 # =========== CRUD Tipo Narrativa ==============
 
 def listar_tiponarrativas(request):
