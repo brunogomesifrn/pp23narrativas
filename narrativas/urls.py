@@ -29,7 +29,7 @@ urlpatterns = [
 
     # DASHBPARD
     path('dashboard/', dashboard, name='dashboard'),
-    path('grafico_personagens', grafico_personagens, name='qtd_personagens_reais'),
+    path('grafico_personagens', grafico_personagens, name='grafico_personagens'),
     
     # Trabalho Dataset
     path('narrativas_dataset/', narrativas_dataset, name='narrativas_dataset'),
