@@ -1,6 +1,6 @@
 from os import link
 from django.db import models
-
+'''
 class Tipo_Narrativa(models.Model):
     nome = models.CharField('Nome', max_length=50)
     def __str__(self):
@@ -67,3 +67,4 @@ class Indicadores_Narrativa(models.Model):
     
 
 
+'''

@@ -1,21 +1,6 @@
-"""
-URL configuration for narrativas project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 from apps.core.views import listar_tiponarrativas, cadastrar_tiponarrativas, editar_tiponarrativas, remover_tiponarrativas
 from apps.core.views import listar_estilonarrativas, cadastrar_estilonarrativas, editar_estilonarrativas, remover_estilonarrativas
 from apps.core.views import listar_localnarrativas, cadastrar_localnarrativas, editar_localnarrativas, remover_localnarrativas
@@ -27,6 +12,15 @@ from apps.core.views import dashboard, grafico_personagens
 
 urlpatterns = [
 
+    path('', include('apps.core.urls')),
+
+    path('narrativas/', include('apps.narrativa.urls')),
+
+    path('indicadores/', include('apps.indicador.urls')),
+
+    path('admin/', admin.site.urls),
+
+    '''
     # DASHBPARD
     path('dashboard/', dashboard, name='dashboard'),
     path('grafico_personagens', grafico_personagens, name='grafico_personagens'),
@@ -72,6 +66,6 @@ urlpatterns = [
     path('editar_publico/<int:id>/', editar_publicodestinos, name='editar_publicodestinos'),
     path('remover_publico/<int:id>', remover_publicodestinos, name='remover_publicodestinos'),
 
-    path('admin/', admin.site.urls),
     
+    '''
 ]

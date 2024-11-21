@@ -19,6 +19,6 @@
 
 ## Aplicações do Projeto:
 - **core**: responsável pelas páginas públicas do projeto
-- **indicadores**: responsável pelo gerenciamento dos indicadores do projeto
-- **narrativas**: reposnsável pelo gerenciamento das narrativas do projeto
+- **indicador**: responsável pelo gerenciamento dos indicadores do projeto
+- **narrativa**: reposnsável pelo gerenciamento das narrativas do projeto
 - **dashboard**: responsável pelo gerenciamento da dashboard do projeto
