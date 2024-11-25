@@ -34,3 +34,5 @@
         - git commit -m "comentário"
     - Enviar o branch para o repositório:
         - git push
+    - Atualizar branchs do repositório local:
+        - git pull
