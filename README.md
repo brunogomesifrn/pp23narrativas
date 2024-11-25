@@ -14,7 +14,7 @@
 - git clone https://github.com/brunogomesifrn/pp23narrativas
 
 4. Executar comandos de criação e atualização do banco de dados:
-- python manage.py makemigrations core indicadores
+- python manage.py makemigrations core narrativa indicador dashboard
 - python manage.py migrate
 
 ## Aplicações do Projeto:

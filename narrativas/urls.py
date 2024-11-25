@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-
+'''
 from apps.core.views import listar_tiponarrativas, cadastrar_tiponarrativas, editar_tiponarrativas, remover_tiponarrativas
 from apps.core.views import listar_estilonarrativas, cadastrar_estilonarrativas, editar_estilonarrativas, remover_estilonarrativas
 from apps.core.views import listar_localnarrativas, cadastrar_localnarrativas, editar_localnarrativas, remover_localnarrativas
@@ -9,7 +9,7 @@ from apps.core.views import listar_periodonarrativas, cadastrar_periodonarrativa
 from apps.core.views import listar_publicodestinos, cadastrar_publicodestinos, editar_publicodestinos, remover_publicodestinos
 from apps.core.views import narrativas_dataset
 from apps.core.views import dashboard, grafico_personagens
-
+'''
 urlpatterns = [
 
     path('', include('apps.core.urls')),
@@ -18,9 +18,16 @@ urlpatterns = [
 
     path('indicadores/', include('apps.indicador.urls')),
 
+    path('dashboard/', include('apps.dashboard.urls')),
+
     path('admin/', admin.site.urls),
 
-    '''
+   
+]
+
+
+
+'''
     # DASHBPARD
     path('dashboard/', dashboard, name='dashboard'),
     path('grafico_personagens', grafico_personagens, name='grafico_personagens'),
@@ -67,5 +74,4 @@ urlpatterns = [
     path('remover_publico/<int:id>', remover_publicodestinos, name='remover_publicodestinos'),
 
     
-    '''
-]
+'''

@@ -1,5 +1,5 @@
 from django.db import models
-from apps.core.models import Narrativa
+from apps.narrativa.models import Narrativa
 
 class Local_Narrativa(models.Model):
     nome = models.CharField('Nome', max_length=50)
