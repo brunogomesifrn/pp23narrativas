@@ -29,6 +29,8 @@
     - Acessando a branch (são duas possibilidades, um comando ou outro):
         - git checkout indicador
         - git switch indicador
+    - Verificar atualizações na branch principal e atualizar o brach atual (indicador):
+        - git pull origin main --rebase
     - Você estará na brach indicador. Após as modificações, basta seguir os comandos normais de atualização:
         - git add .
         - git commit -m "comentário"
