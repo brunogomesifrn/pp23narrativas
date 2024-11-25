@@ -22,7 +22,8 @@
 - **core**: responsável pelas páginas públicas do projeto (inicial, lista de narrativas, detalhes de narrativa, contato, login, cadastro de usuário);
 - **narrativa**: responsável pelo gerenciamento das narrativas do projeto (narrativa, tipo e estilo);
 - **indicador**: responsável pelo gerenciamento dos indicadores quantitativos do projeto;
-- **dashboard**: responsável pelo gerenciamento da dashboard do projeto.
+- **dashboard**: responsável pelo gerenciamento da dashboard do projeto;
+- **usuario**: responsável pelo gerenciamento de usuários e permissões de acesso ao projeto.
 
 ## Templates e Statics
 - As pastas **templates** e **statics** na raiz do projeto servem apenas para as bases que serão exportadas nas demais páginas do projeto, ou seja, estará o layout modularizado;
