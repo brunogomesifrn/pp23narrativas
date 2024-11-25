@@ -23,15 +23,3 @@
 - **indicador**: responsável pelo gerenciamento dos indicadores quantitativos do projeto;
 - **dashboard**: responsável pelo gerenciamento da dashboard do projeto.
 
-## Trabalho em brachs:
-- Quando for modificar alguma aplicação do projeto, deve usar a brach de mesmo nome. Por exemplo: Se for alterar algo na aplicação indicador, usar a branch **indicador**.
-- Comandos:
-    - Criar a branch localmente:
-        - git branch indicador
-    - Acessando a branch (são duas possibilidades, um comando ou outro):
-        - git checkout indicador
-        - git switch indicador
-    - Você estará na brach indicador, então basta seguir os comandos normais de atualização:
-        - git add .
-        - git commit -m "comentário"
-    - Enviar o branch para 
