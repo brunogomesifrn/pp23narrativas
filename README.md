@@ -29,7 +29,7 @@
     - Acessando a branch (são duas possibilidades, um comando ou outro):
         - git checkout indicador
         - git switch indicador
-    - Você estará na brach indicador, então basta seguir os comandos normais de atualização:
+    - Você estará na brach indicador. Após as modificações, basta seguir os comandos normais de atualização:
         - git add .
         - git commit -m "comentário"
     - Enviar o branch para o repositório:
