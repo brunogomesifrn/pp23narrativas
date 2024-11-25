@@ -23,3 +23,14 @@
 - **indicador**: responsável pelo gerenciamento dos indicadores quantitativos do projeto;
 - **dashboard**: responsável pelo gerenciamento da dashboard do projeto.
 
+## Trabalho em brachs:
+- Quando for modificar alguma aplicação do projeto, deve usar a brach de mesmo nome. Por exemplo: Se for alterar algo na aplicação **indicador**, usar a branch **indicador**. A única exceção é se alterar algum arquivo de configuração geral, como settings.py ou o urls.py principal, então deve usar a brach **core**.
+- Comandos (supondo que irá alterar algo na app indicador):
+    - Acessando a branch (são duas possibilidades, um comando ou outro):
+        - git checkout indicador
+        - git switch indicador
+    - Você estará na brach indicador, então basta seguir os comandos normais de atualização:
+        - git add .
+        - git commit -m "comentário"
+    - Enviar o branch para o repositório:
+        - git push
