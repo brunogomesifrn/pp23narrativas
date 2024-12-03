@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define o idioma principal do documento como Português do Brasil -->
+<head>
+    <!-- Metadados básicos -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que o layout seja responsivo -->
+    <title>Nova Narrativa</title> <!-- Título exibido na aba do navegador -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <!-- Fontes personalizadas -->
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Biblioteca de estilos pré-definidos -->
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Corpo geral */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fonte principal */
+            background-color: #f0f0f0; /* Fundo claro */
+        }
+
+        h1, h2 {
+            font-family: 'Merriweather', serif; /* Fonte estilizada para os títulos */
+        }
+
+        /* Menu lateral (sidebar) */
+        .sidebar {
+            width: 250px; /* Largura fixa do menu lateral */
+            background-color: #1e1e1e; /* Fundo escuro */
+            color: white; /* Texto branco */
+            height: 100vh; /* Altura de 100% da tela */
+            position: fixed; /* Mantém o menu fixo */
+            top: 0; /* Alinha no topo */
+            left: 0; /* Alinha à esquerda */
+            padding: 1rem; /* Espaçamento interno */
+        }
+
+        .sidebar a {
+            color: #bbb; /* Links em tom cinza claro */
+            text-decoration: none; /* Remove o sublinhado */
+            display: block; /* Ocupa uma linha inteira */
+            margin: 1rem 0; /* Espaçamento entre os links */
+        }
+
+        .sidebar a:hover {
+            color: white; /* Cor branca ao passar o mouse */
+        }
+
+        /* Conteúdo principal */
+        .content {
+            margin-left: 250px; /* Adiciona margem para não sobrepor o menu lateral */
+            padding: 2rem; /* Espaçamento interno */
+        }
+
+        /* Botão primário */
+        .btn-primary {
+            background-color: #2c2c2c; /* Fundo escuro */
+            color: white; /* Texto branco */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 10px 20px; /* Espaçamento interno */
+            border: none; /* Remove a borda padrão */
+        }
+
+        .btn-primary:hover {
+            background-color: #444; /* Fundo mais claro ao passar o mouse */
+        }
+
+        /* Campos do formulário */
+        .form-control {
+            border-radius: 10px; /* Bordas arredondadas */
+            padding: 10px; /* Espaçamento interno */
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu lateral -->
+    <div class="sidebar">
+        <h2>E-Narrativas</h2> <!-- Título do menu lateral -->
+        <!-- Links do menu -->
+        <a href="mynarrativas.html">Minhas Narrativas</a>
+        <a href="#">Favoritas</a>
+        <a href="#">Conquistas</a>
+        <a href="#">Gerenciar Narrativas</a>
+        <a href="#">Gerenciar Tipos</a>
+        <a href="#">Gerenciar Estilos</a>
+        <a href="#">Gerenciar Usuários</a>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="content">
+        <h1>Adicionar Nova Narrativa</h1> <!-- Título da página -->
+        <!-- Formulário de cadastro da narrativa -->
+        <form>
+            <!-- Campo para o título -->
+            <div class="mb-3"> <!-- Margem inferior padrão do Bootstrap -->
+                <label for="titulo" class="form-label">Título da Narrativa</label> <!-- Rótulo do campo -->
+                <input type="text" id="titulo" class="form-control" placeholder="Digite o título"> <!-- Campo de entrada de texto -->
+            </div>
+            <!-- Campo para descrição -->
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label> <!-- Rótulo do campo -->
+                <textarea id="descricao" class="form-control" rows="5" placeholder="Digite a descrição"></textarea> <!-- Área de texto -->
+            </div>
+            <!-- Campo para upload de imagem -->
+            <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem</label> <!-- Rótulo do campo -->
+                <input type="file" id="imagem" class="form-control"> <!-- Campo de upload -->
+            </div>
+            <!-- Botão para salvar narrativa -->
+            <div>
+                <button type="submit" class="btn-primary">Salvar Narrativa</button> <!-- Botão estilizado -->
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Funcionalidades interativas do Bootstrap -->
+</body>
+</html>
