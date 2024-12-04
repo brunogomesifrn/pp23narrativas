@@ -25,6 +25,28 @@
         h1, h2, h5 {
             font-family: 'Merriweather', serif; /* Fonte mais elaborada para títulos */
         }
+        
+    
+        /* Linhas do botão hamburger */
+        .navbar-toggler-icon {
+            background-color: transparent; /* Remove fundo padrão */
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+        }
+
+        /* Linhas internas do botão hamburger */
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after,
+        .navbar-toggler-icon span {
+            content: ""; /* Define conteúdo vazio para as linhas */
+            display: block; /* Torna as linhas visíveis */
+            background-color: white; /* Altera a cor das linhas para branco */
+            height: 3px; /* Altura das linhas */
+            width: 100%; /* Largura total */
+            margin: 5px 0; /* Espaçamento entre as linhas */
+        }
 
         /* Barra de navegação (navbar) */
         .navbar {
@@ -211,6 +233,8 @@
                     <li class="nav-item"><a class="nav-link" href="narrativas.html">Categorias</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li> <!-- Link para página Sobre -->
                     <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Contato</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li> <!-- Link para página de Login -->
                 </ul>
                 <!-- Avatar do usuário -->
                 <div class="user-avatar">
