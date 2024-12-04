@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if narrativa %}Editar Narrativa{% else %}Cadastrar Narrativa{% endif %}</title>
+</head>
+<body>
+    <h1>{% if narrativa %}Editar Narrativa{% else %}Cadastrar Narrativa{% endif %}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" value="{{ narrativa.titulo|default_if_none:'' }}" required><br>
+        
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required>{{ narrativa.descricao|default_if_none:'' }}</textarea><br>
+        
+        <button type="submit">Registrar</button>
+    </form>
+    <a href="{% url 'listar_narrativas' %}">Voltar</a>
+</body>
+</html>
