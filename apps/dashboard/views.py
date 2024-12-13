@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from apps.indicador.models import Indicadores_Narrativa
+from apps.indicador.models import Indicadores_Narrativa, Turno_Narrativa
 from django.db.models import Sum
 
 # =========== DASHBOARD ==============
@@ -24,6 +24,24 @@ def grafico_personagens(request):
     }
     return render(request, 'dashboard/grafico_personagens.html', contexto)
 
+def grafico_turnos(request):
+    indicadores = Indicadores_Narrativa.objects.all()
+    turnos = Turno_Narrativa.objects.all()
+
+    turnos_count={}
+    
+    for turno in turnos:
+        turnos_count[turno.nome] = 0
+        
+    for indicador in list(indicadores):
+        for turno in indicador.turnos.all():
+            turnos_count[turno.nome] += 1
+    
+    contexto = {
+        'turnos': turnos_count
+    }
+    
+    return render(request, 'dashboard/turnos.html', contexto)
 
 '''
 def grafico_personagens(request):
