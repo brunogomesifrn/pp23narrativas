@@ -4,7 +4,7 @@ from apps.indicador.models import Indicadores_Narrativa
 # =========== DASHBOARD ==============
 
 def dashboard(request):
-    return render(request, 'index.html')
+    return render(request, 'index_dashboard.html')
 
 
 def grafico_personagens(request):

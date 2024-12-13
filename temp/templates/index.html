@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define que o idioma principal do documento é Português do Brasil -->
+<head>
+    <!-- Metadados do documento -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8, permitindo caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade para diferentes tamanhos de tela -->
+    <title>E-narrativas</title> <!-- Título que aparecerá na aba do navegador -->
+
+    <!-- Importação de fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Importação do Bootstrap para estilização rápida e responsiva -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Geral - Define fontes e cores para o site */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fonte padrão para textos */
+            background-color: #f0f0f0; /* Cor de fundo clara */
+            color: #333; /* Cor principal do texto */
+        }
+
+        /* Estilo para títulos */
+        h1, h2, h5 {
+            font-family: 'Merriweather', serif; /* Fonte mais elaborada para títulos */
+        }
+        
+    
+        /* Linhas do botão hamburger */
+        .navbar-toggler-icon {
+            background-color: transparent; /* Remove fundo padrão */
+            position: relative;
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+        }
+
+        /* Linhas internas do botão hamburger */
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after,
+        .navbar-toggler-icon span {
+            content: ""; /* Define conteúdo vazio para as linhas */
+            display: block; /* Torna as linhas visíveis */
+            background-color: white; /* Altera a cor das linhas para branco */
+            height: 3px; /* Altura das linhas */
+            width: 100%; /* Largura total */
+            margin: 5px 0; /* Espaçamento entre as linhas */
+        }
+
+        /* Barra de navegação (navbar) */
+        .navbar {
+            background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Gradiente escuro para o fundo */
+            padding: 1rem; /* Espaçamento interno da barra */
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem; /* Define o tamanho do texto do nome da marca */
+            font-weight: 700; /* Deixa o texto em negrito */
+            color: white !important; /* Força a cor branca */
+            display: flex; /* Alinha o logo e o texto lado a lado */
+            align-items: center; /* Centraliza verticalmente o logo e o texto */
+        }
+
+        .navbar-brand img {
+            height: 50px; /* Define a altura fixa do logo */
+            margin-right: 10px; /* Espaçamento entre o logo e o texto */
+        }
+
+        /* Estilo para links na navbar */
+        .nav-link {
+            color: #bbb !important; /* Links em tom de cinza claro */
+            font-size: 1rem; /* Tamanho do texto dos links */
+        }
+
+        .nav-link:hover {
+            color: white !important; /* Fica branco ao passar o mouse */
+        }
+
+        /* Barra de pesquisa dentro da navbar */
+        .search-bar {
+            width: 50%; /* Define a largura da barra em 50% */
+            max-width: 400px; /* Limita a largura máxima em 400px */
+        }
+
+        .search-bar input {
+            border-radius: 20px; /* Bordas arredondadas */
+            border: 1px solid #666; /* Borda com tom de cinza escuro */
+            padding: 10px 15px; /* Espaçamento interno */
+            background-color: #2c2c2c; /* Fundo cinza escuro */
+            color: white; /* Texto branco */
+        }
+
+        .search-bar input::placeholder {
+            color: #bbb; /* Define a cor do texto placeholder */
+        }
+
+        .search-bar button {
+            background-color: #444; /* Fundo cinza escuro para o botão */
+            color: white; /* Texto branco no botão */
+            border: none; /* Remove borda padrão */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 10px 20px; /* Espaçamento interno do botão */
+            margin-left: -50px; /* Sobrepõe ligeiramente o botão no input */
+        }
+
+        .search-bar button:hover {
+            background-color: #666; /* Muda o fundo do botão ao passar o mouse */
+        }
+
+        /* Avatar de usuário (círculo na navbar) */
+        .user-avatar {
+            width: 40px; /* Define largura do círculo */
+            height: 40px; /* Define altura do círculo */
+            border-radius: 50%; /* Deixa o formato circular */
+            background-color: #444; /* Fundo cinza escuro */
+            display: flex; /* Torna o conteúdo interno flexível */
+            align-items: center; /* Centraliza verticalmente o conteúdo */
+            justify-content: center; /* Centraliza horizontalmente o conteúdo */
+            color: white; /* Texto branco */
+            font-size: 1rem; /* Tamanho do texto no avatar */
+            font-weight: bold; /* Deixa o texto em negrito */
+            margin-left: 20px; /* Espaçamento entre o avatar e os links */
+        }
+
+        .user-avatar:hover {
+            background-color: #666; /* Fundo mais claro ao passar o mouse */
+        }
+
+        /* Seção Hero - principal destaque na página */
+        .hero-section {
+            text-align: center; /* Centraliza o texto e elementos */
+            padding: 4rem 1rem; /* Espaçamento interno grande */
+            background: linear-gradient(180deg, #2c2c2c, #1e1e1e); /* Gradiente escuro */
+            color: white; /* Texto branco */
+        }
+
+        .hero-section img {
+            height: 200px; /* Altura fixa para o logotipo */
+            margin-bottom: 20px; /* Espaçamento inferior */
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem; /* Define tamanho grande para o título */
+            margin-bottom: 10px; /* Espaçamento inferior */
+        }
+
+        .hero-section p {
+            font-size: 1.2rem; /* Tamanho de texto maior */
+            color: #ccc; /* Tom mais claro de cinza */
+        }
+
+        /* Estilização de cards de categorias */
+        .card {
+            border: none; /* Remove bordas padrão */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animações suaves */
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Elevação ao passar o mouse */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+        }
+
+        .card-title {
+            font-size: 1.4rem; /* Define tamanho maior para o título */
+            font-weight: bold; /* Deixa o título em negrito */
+            color: #333; /* Cor escura */
+        }
+
+        .card-text {
+            font-size: 1rem; /* Tamanho padrão para textos */
+            color: #555; /* Tom médio de cinza */
+        }
+
+        .btn-primary {
+            font-size: 1rem; /* Define tamanho do texto no botão */
+            padding: 8px 20px; /* Espaçamento interno */
+            border-radius: 20px; /* Bordas arredondadas */
+            background-color: #2c2c2c; /* Fundo escuro */
+            border: none; /* Remove borda padrão */
+        }
+
+        .btn-primary:hover {
+            background-color: #444; /* Fundo mais claro ao passar o mouse */
+        }
+
+        /* Rodapé */
+        footer {
+            background: #1e1e1e; /* Fundo escuro */
+            color: #bbb; /* Texto cinza claro */
+            padding: 1rem; /* Espaçamento interno do rodapé */
+            text-align: center; /* Centraliza o conteúdo */
+        }
+
+        footer a {
+            color: #888; /* Define tom médio para links */
+            text-decoration: none; /* Remove o sublinhado */
+        }
+
+        footer a:hover {
+            color: white; /* Muda para branco ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar: Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container"> <!-- Contêiner do Bootstrap para centralizar e organizar o conteúdo -->
+            <!-- Logotipo e nome da marca -->
+            <a class="navbar-brand" href="index.html"> <!-- Link para a página inicial -->
+                <img src="img/Logo_ST.png" alt="Logomarca do E-Narrativas"> <!-- Logotipo -->
+                E-NARRATIVAS <!-- Nome do site -->
+            </a>
+
+            <!-- Barra de Pesquisa -->
+            <form class="search-bar d-flex mx-auto"> <!-- Classe "d-flex" para usar flexbox, e "mx-auto" para centralizar -->
+                <input type="text" class="form-control" placeholder="Pesquise histórias..."> <!-- Campo de texto para busca -->
+                <button type="submit" class="btn btn-primary">Buscar</button> <!-- Botão de envio -->
+            </form>
+
+            <!-- Botão de navegação para telas pequenas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span> <!-- Ícone do botão de menu -->
+            </button>
+
+            <!-- Links de navegação e menu dropdown -->
+            <div class="collapse navbar-collapse" id="menu"> <!-- Menu colapsável em telas menores -->
+                <ul class="navbar-nav ms-auto"> <!-- Lista de itens do menu, alinhada à direita -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li> <!-- Link para a página inicial -->
+                    <li class="nav-item"><a class="nav-link" href="narrativas.html">Categorias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li> <!-- Link para página Sobre -->
+                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Contato</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li> <!-- Link para página de Login -->
+                </ul>
+                <!-- Avatar do usuário -->
+                <div class="user-avatar">
+                    <a href="mynarrativas.html">P</a> <!-- Link para página de login com o avatar -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Seção de Destaque -->
+    <section class="hero-section">
+        <img src="img/Logo_full.png" alt="Logomarca do E-Narrativas"> <!-- Logotipo principal -->
+        <h1>Repositório Online de Contos</h1> <!-- Título da seção -->
+        <p>Compartilhando histórias que moldam nossa identidade.</p> <!-- Texto descritivo -->
+    </section>
+
+    <!-- Seção de Categorias -->
+    <section class="container py-5"> <!-- Contêiner com espaçamento vertical (py-5) -->
+        <h2 class="text-center mb-4">Categorias em Destaque </h2> <!-- Título da seção -->
+        <div class="row gy-4"> <!-- Grelha (grid) do Bootstrap com espaçamento entre linhas (gy-4) -->
+            <!-- Card 1 -->
+            <div class="col-md-4"> <!-- Coluna para responsividade (1/3 da largura em telas médias e maiores) -->
+                <div class="card text-center"> <!-- Card com texto centralizado -->
+                    <img src="img/Nordestinos.jpg" alt="Contos Nordestinos" class="card-img-top"> <!-- Imagem do card -->
+                    <div class="card-body"> <!-- Corpo do card -->
+                        <h5 class="card-title">Contos Nordestinos</h5> <!-- Título do card -->
+                        <p class="card-text">Histórias que trazem a riqueza cultural do Nordeste brasileiro.</p> <!-- Texto descritivo -->
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a> <!-- Botão para acessar mais informações -->
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="img/Religioso.jpg" alt="Contos Religiosos" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Contos Religiosos</h5>
+                        <p class="card-text">Descubra narrativas que conectam fé e cultura popular.</p>
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="img/Humor.jpg" alt="Contos de Humor" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Contos de Humor</h5>
+                        <p class="card-text">Histórias que celebram o humor e a criatividade brasileira.</p>
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Rodapé -->
+    <footer>
+        <p>©️ 2024 Repositório Online de Contos. Todos os direitos reservados.</p> <!-- Texto do rodapé -->
+        <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a> <!-- Links para políticas do site -->
+    </footer>
+
+    <!-- Script do Bootstrap para funcionalidade de componentes -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
