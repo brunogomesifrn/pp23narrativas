@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from apps.indicador.models import Indicadores_Narrativa
+from django.db.models import Sum
 
 # =========== DASHBOARD ==============
 
 def dashboard(request):
-    return render(request, 'index_dashboard.html')
-
+    return render(request, 'dashboard/index.html')
 
 def grafico_personagens(request):
     indicadores = Indicadores_Narrativa.objects.all()
@@ -13,7 +13,7 @@ def grafico_personagens(request):
     
     qtd_reais = 0
     qtd_imaginarios = 0
-    for indicador in indicadores:
+    for indicador in list(indicadores):
         qtd_reais += indicador.qtd_personagens_reais
         qtd_imaginarios += indicador.qtd_personagens_imaginarios
         
@@ -22,4 +22,84 @@ def grafico_personagens(request):
         'qtd_reais': qtd_reais,
         'qtd_imaginarios': qtd_imaginarios
     }
-    return render(request, 'grafico_personagens.html', contexto)
+    return render(request, 'dashboard/grafico_personagens.html', contexto)
+
+
+'''
+def grafico_personagens(request):
+    # Obtendo todos os indicadores
+    indicadores = Indicadores_Narrativa.objects.all()
+
+    
+    
+    # Calculando o total de personagens reais e imaginários
+    totais = indicadores.aggregate(
+        qtd_reais=Sum('qtd_personagens_reais'),
+        qtd_imaginarios=Sum('qtd_personagens_imaginarios')
+    )
+
+    # Contexto para o template
+    contexto = {
+        'indicadores': indicadores,
+        'qtd_reais': totais.get('qtd_reais'),
+        'qtd_imaginarios': totais.get('qtd_imaginarios'),
+    }
+    return render(request, 'dashboard/grafico_personagens.html', contexto)
+'''
+
+def personagens_imaginarios(request):
+    # Obtendo o total de personagens imaginários
+    qtd_imaginarios = Indicadores_Narrativa.objects.aggregate(
+        total_imaginarios=Sum('qtd_personagens_imaginarios')
+    ).get('total_imaginarios', 0) or 0
+
+    # Contexto para o template
+    contexto = {
+        'qtd_imaginarios': qtd_imaginarios,
+    }
+    return render(request, 'dashboard/grafico_personagens.html', contexto)
+
+
+def personagens_reais(request):
+    # Obtendo o total de personagens reais
+    qtd_reais = Indicadores_Narrativa.objects.aggregate(
+        total_reais=Sum('qtd_personagens_reais')
+    ).get('total_reais', 0) or 0
+
+    # Contexto para o template
+    contexto = {
+        'qtd_reais': qtd_reais,
+    }
+    return render(request, 'dashboard/grafico_personagens.html', contexto)
+
+
+def tipo(request):
+    # Obtendo o total de personagens reais
+    qtd_reais = Indicadores_Narrativa.objects.aggregate(
+        total_reais=Sum('qtd_personagens_reais')
+    ).get('total_reais', 0) or 0
+
+    # Contexto para o template
+    contexto = {
+        'qtd_reais': qtd_reais,
+    }
+    return render(request, 'dashboard/tipo.html', contexto)
+
+def grafico_narrativas(request):
+    # Caminho do CSV
+    
+    # Carregar os dados do CSV
+    labels = []
+    data = []
+    with open(caminho_csv, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            labels.append(row['Tipo'])
+            data.append(int(row['Quantidade']))
+
+    # Contexto para o template
+    contexto = {
+        'labels': labels,
+        'data': data,
+    }
+    return render(request, 'dashboard/grafico_narrativas.html', contexto)

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #6001f9;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #6001f9;
+            padding: 100px;
+            border-radius: 15px;
+            gap: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .btn-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/6pcn2fH.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background-color: #0e0d0d;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            background-color: #cf0808;
+            color: #ffffff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:focus {
+            outline: 2px solid #6001f9;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menu Narrativas</h1>
+    <div class="container">
+        <div class="btn-wrapper">
+            <p><a href="{% url 'grafico_personagens' %}" class="btn">Personagens</a></p>
+            <p><a href="{% url 'personagens_reais' %}" class="btn">Personagens Reais</a></p>
+            <p><a href="{% url 'personagens_imaginarios' %}" class="btn">Personagens Imaginários</a></p>
+            <p><a href="{% url 'tipo' %}" class="btn">Tipo de Narrativas</a></p>
+        </div>
+    </div>
+</body>
+</html>
