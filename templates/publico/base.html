@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define que o idioma principal do documento é Português do Brasil -->
+<head>
+   {% include 'publico/head.html' %}
+</head>
+<body>
+    <!-- Navbar: Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container"> <!-- Contêiner do Bootstrap para centralizar e organizar o conteúdo -->
+            <!-- Logotipo e nome da marca -->
+            <a class="navbar-brand" href="index.html"> <!-- Link para a página inicial -->
+                <img src="img/Logo_ST.png" alt="Logomarca do E-Narrativas"> <!-- Logotipo -->
+                E-NARRATIVAS <!-- Nome do site -->
+            </a>
+
+            <!-- Barra de Pesquisa -->
+            <form class="search-bar d-flex mx-auto"> <!-- Classe "d-flex" para usar flexbox, e "mx-auto" para centralizar -->
+                <input type="text" class="form-control" placeholder="Pesquise histórias..."> <!-- Campo de texto para busca -->
+                <button type="submit" class="btn btn-primary">Buscar</button> <!-- Botão de envio -->
+            </form>
+
+            <!-- Botão de navegação para telas pequenas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span> <!-- Ícone do botão de menu -->
+            </button>
+
+            <!-- Links de navegação e menu dropdown -->
+            <div class="collapse navbar-collapse" id="menu"> <!-- Menu colapsável em telas menores -->
+                <ul class="navbar-nav ms-auto"> <!-- Lista de itens do menu, alinhada à direita -->
+                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li> <!-- Link para a página inicial -->
+                    <li class="nav-item"><a class="nav-link" href="narrativas.html">Categorias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li> <!-- Link para página Sobre -->
+                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Contato</a></li> <!-- Link para página de Upload -->
+                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li> <!-- Link para página de Login -->
+                </ul>
+                <!-- Avatar do usuário -->
+                <div class="user-avatar">
+                    <a href="mynarrativas.html">P</a> <!-- Link para página de login com o avatar -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Seção de Destaque -->
+    <section class="hero-section">
+        <img src="img/Logo_full.png" alt="Logomarca do E-Narrativas"> <!-- Logotipo principal -->
+        <h1>Repositório Online de Contos</h1> <!-- Título da seção -->
+        <p>Compartilhando histórias que moldam nossa identidade.</p> <!-- Texto descritivo -->
+    </section>
+
+    <!-- Seção de Categorias -->
+    <section class="container py-5"> <!-- Contêiner com espaçamento vertical (py-5) -->
+        <h2 class="text-center mb-4">Categorias em Destaque </h2> <!-- Título da seção -->
+        <div class="row gy-4"> <!-- Grelha (grid) do Bootstrap com espaçamento entre linhas (gy-4) -->
+            <!-- Card 1 -->
+            <div class="col-md-4"> <!-- Coluna para responsividade (1/3 da largura em telas médias e maiores) -->
+                <div class="card text-center"> <!-- Card com texto centralizado -->
+                    <img src="img/Nordestinos.jpg" alt="Contos Nordestinos" class="card-img-top"> <!-- Imagem do card -->
+                    <div class="card-body"> <!-- Corpo do card -->
+                        <h5 class="card-title">Contos Nordestinos</h5> <!-- Título do card -->
+                        <p class="card-text">Histórias que trazem a riqueza cultural do Nordeste brasileiro.</p> <!-- Texto descritivo -->
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a> <!-- Botão para acessar mais informações -->
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="img/Religioso.jpg" alt="Contos Religiosos" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Contos Religiosos</h5>
+                        <p class="card-text">Descubra narrativas que conectam fé e cultura popular.</p>
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <img src="img/Humor.jpg" alt="Contos de Humor" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Contos de Humor</h5>
+                        <p class="card-text">Histórias que celebram o humor e a criatividade brasileira.</p>
+                        <a href="narrativas.html" class="btn btn-primary">Leia mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Rodapé -->
+    <footer>
+        <p>©️ 2024 Repositório Online de Contos. Todos os direitos reservados.</p> <!-- Texto do rodapé -->
+        <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a> <!-- Links para políticas do site -->
+    </footer>
+
+    <!-- Script do Bootstrap para funcionalidade de componentes -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

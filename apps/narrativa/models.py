@@ -1,10 +1,12 @@
 from django.db import models
 
+# Se é conto, história, lenda.....
 class Tipo_Narrativa(models.Model):
     nome = models.CharField('Nome', max_length=50)
     def __str__(self):
         return self.nome
 
+#se é humor, terror, aventura....
 class Estilo_Narrativa(models.Model):
     nome = models.CharField('Nome', max_length=50)
     def __str__(self):
