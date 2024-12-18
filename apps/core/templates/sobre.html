@@ -1,0 +1,205 @@
+{% extends 'publico/base.html' %}
+
+
+{% block estilo_interno %}
+
+<style>
+    /* Corpo geral */
+    body {
+        font-family: 'Open Sans', sans-serif; /* Define a fonte principal */
+        background-color: #f0f0f0; /* Fundo claro */
+        color: #333; /* Texto em cinza escuro */
+    }
+
+    /* Linhas do botão hamburger */
+    .navbar-toggler-icon {
+        background-color: transparent; /* Remove fundo padrão */
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+    }
+
+    /* Linhas internas do botão hamburger */
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+        content: ""; /* Define conteúdo vazio para as linhas */
+        display: block; /* Torna as linhas visíveis */
+        background-color: white; /* Altera a cor das linhas para branco */
+        height: 3px; /* Altura das linhas */
+        width: 100%; /* Largura total */
+        margin: 5px 0; /* Espaçamento entre as linhas */
+    }
+
+    /* Estilo para títulos */
+    h1, h2, h5 {
+        font-family: 'Merriweather', serif; /* Fonte estilizada para títulos */
+    }
+
+    /* Navbar */
+    .navbar {
+        background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Gradiente escuro para o fundo */
+        padding: 1rem; /* Espaçamento interno da barra */
+    }
+
+    .navbar-brand {
+        font-size: 1.5rem; /* Define o tamanho do texto do nome da marca */
+        font-weight: 700; /* Deixa o texto em negrito */
+        color: white !important; /* Força a cor branca */
+        display: flex; /* Alinha o logo e o texto lado a lado */
+        align-items: center; /* Centraliza verticalmente o logo e o texto */
+    }
+
+    .navbar-brand img {
+        height: 50px; /* Define a altura fixa do logo */
+        margin-right: 10px; /* Espaçamento entre o logo e o texto */
+    }
+
+    /* Estilo para links na navbar */
+    .nav-link {
+        color: #bbb !important; /* Links em tom de cinza claro */
+        font-size: 1rem; /* Tamanho do texto dos links */
+    }
+
+    .nav-link:hover {
+        color: white !important; /* Fica branco ao passar o mouse */
+    }
+
+    /* Barra de pesquisa dentro da navbar */
+    .search-bar {
+        width: 50%; /* Define a largura da barra em 50% */
+        max-width: 400px; /* Limita a largura máxima em 400px */
+    }
+
+    .search-bar input {
+        border-radius: 20px; /* Bordas arredondadas */
+        border: 1px solid #666; /* Borda com tom de cinza escuro */
+        padding: 10px 15px; /* Espaçamento interno */
+        background-color: #2c2c2c; /* Fundo cinza escuro */
+        color: white; /* Texto branco */
+    }
+
+    .search-bar input::placeholder {
+        color: #bbb; /* Define a cor do texto placeholder */
+    }
+
+    .search-bar button {
+        background-color: #444; /* Fundo cinza escuro para o botão */
+        color: white; /* Texto branco no botão */
+        border: none; /* Remove borda padrão */
+        border-radius: 20px; /* Bordas arredondadas */
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        margin-left: -50px; /* Sobrepõe ligeiramente o botão no input */
+    }
+
+    .search-bar button:hover {
+        background-color: #666; /* Muda o fundo do botão ao passar o mouse */
+    }
+
+    /* Avatar de usuário (círculo na navbar) */
+    .user-avatar {
+        width: 40px; /* Define largura do círculo */
+        height: 40px; /* Define altura do círculo */
+        border-radius: 50%; /* Deixa o formato circular */
+        background-color: #444; /* Fundo cinza escuro */
+        display: flex; /* Torna o conteúdo interno flexível */
+        align-items: center; /* Centraliza verticalmente o conteúdo */
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        color: white; /* Texto branco */
+        font-size: 1rem; /* Tamanho do texto no avatar */
+        font-weight: bold; /* Deixa o texto em negrito */
+        margin-left: 20px; /* Espaçamento entre o avatar e os links */
+    }
+
+    .user-avatar:hover {
+        background-color: #666; /* Fundo mais claro ao passar o mouse */
+    }
+
+    /* Seção Sobre */
+    .about-section {
+        padding: 4rem 1rem; /* Espaçamento interno da seção */
+        background: #fff; /* Fundo branco */
+        color: #333; /* Texto em cinza escuro */
+    }
+
+    .about-section h2 {
+        font-size: 2rem; /* Tamanho do título */
+        margin-bottom: 1.5rem; /* Espaçamento inferior */
+        text-align: center; /* Alinhamento central */
+    }
+
+    .about-section p {
+        font-size: 1.2rem; /* Tamanho do texto */
+        line-height: 1.8; /* Espaçamento entre linhas */
+        margin-bottom: 1rem; /* Espaçamento inferior */
+    }
+
+    /* Valores */
+    .values-section {
+        background: #f8f9fa; /* Fundo cinza claro */
+        padding: 4rem 1rem; /* Espaçamento interno */
+        color: #555; /* Texto em cinza médio */
+    }
+
+    .values-section h3 {
+        font-size: 1.8rem; /* Tamanho do título */
+        margin-bottom: 1.5rem; /* Espaçamento inferior */
+    }
+
+    /* Rodapé */
+    .footer {
+        background: #1e1e1e; /* Fundo escuro */
+        color: #bbb; /* Texto em cinza claro */
+        padding: 1rem; /* Espaçamento interno */
+        text-align: center; /* Texto centralizado */
+    }
+
+    .footer a {
+        color: #888; /* Links em cinza claro */
+        text-decoration: none; /* Remove sublinhado */
+    }
+
+    .footer a:hover {
+        color: white; /* Links ficam brancos no hover */
+    }
+</style>
+
+
+{% endblock%}
+
+
+{% block conteudo %}
+
+<!-- Seção Sobre -->
+<section class="about-section">
+    <div class="container">
+        <h2>Sobre o E-Narrativas</h2> <!-- Título da seção -->
+        <p>
+            O E-Narrativas é um repositório online dedicado à preservação e disseminação de contos e histórias que refletem a diversidade cultural brasileira.
+        </p>
+        <p>
+            Fundado com a visão de ser um ponto de encontro digital para amantes de literatura, o E-Narrativas também busca incentivar a criatividade e a troca de experiências entre seus usuários.
+        </p>
+    </div>
+</section>
+
+<!-- Seção Valores -->
+<section class="values-section">
+    <div class="container">
+        <h3>Nossos Valores</h3>
+        <ul>
+            <li><strong>Inclusão:</strong> Damos espaço para todas as vozes e histórias.</li>
+            <li><strong>Tradição:</strong> Valorizamos e preservamos a riqueza cultural do Brasil.</li>
+            <li><strong>Criatividade:</strong> Estimulamos novas narrativas e perspectivas.</li>
+            <li><strong>Comunidade:</strong> Promovemos conexões e trocas significativas.</li>
+        </ul>
+    </div>
+</section>
+
+
+{% endblock%}
+
+
+
+
