@@ -23,10 +23,10 @@
         <!-- Links de navegação e menu dropdown -->
         <div class="collapse navbar-collapse" id="menu"> <!-- Menu colapsável em telas menores -->
             <ul class="navbar-nav ms-auto"> <!-- Lista de itens do menu, alinhada à direita -->
-                <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li> <!-- Link para a página inicial -->
-                <li class="nav-item"><a class="nav-link" href="narrativas.html">Categorias</a></li>
-                <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li> <!-- Link para página Sobre -->
-                <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li> <!-- Link para página de Upload -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Início</a></li> <!-- Link para a página inicial -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'narrativas' %}">Categorias</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Sobre</a></li> <!-- Link para página Sobre -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'upload' %}">Upload</a></li> <!-- Link para página de Upload -->
                 <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Contato</a></li> <!-- Link para página de Upload -->
                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Logout</a></li> <!-- Link para página de Login -->
             </ul>
