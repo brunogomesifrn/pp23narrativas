@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br"> <!-- Define o idioma principal do documento como Português do Brasil -->
+<head>
+    <!-- Metadados -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8, permitindo o uso de caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante responsividade para dispositivos móveis -->
+    <title>Login - E-narrativas</title> <!-- Título exibido na aba do navegador -->
+
+    <!-- Importação de fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Biblioteca de estilos pré-definidos -->
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Estilo do corpo */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Fonte principal do corpo */
+            background: linear-gradient(180deg, #2c2c2c, #1e1e1e); /* Fundo com gradiente escuro */
+            color: white; /* Texto branco */
+            min-height: 100vh; /* Define altura mínima de 100% da altura da tela */
+            display: flex; /* Centraliza conteúdo usando flexbox */
+            align-items: center; /* Centraliza verticalmente */
+            justify-content: center; /* Centraliza horizontalmente */
+            margin: 0; /* Remove margens padrão */
+        }
+
+        /* Container principal de login */
+        .login-container {
+            background: #fff; /* Fundo branco */
+            color: #333; /* Texto escuro */
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            padding: 2rem; /* Espaçamento interno */
+            max-width: 400px; /* Largura máxima */
+            width: 100%; /* O container ocupa 100% do espaço disponível */
+        }
+
+        /* Título do formulário */
+        .login-container h1 {
+            font-family: 'Merriweather', serif; /* Fonte estilizada */
+            font-size: 2rem; /* Tamanho do texto */
+            text-align: center; /* Centraliza o título */
+            margin-bottom: 1.5rem; /* Espaçamento inferior */
+        }
+
+        /* Logo personalizada */
+    
+        .logo-container {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        /* Campos do formulário */
+        .form-control {
+            border-radius: 20px; /* Bordas arredondadas */
+        }
+
+        /* Botão primário */
+        .btn-primary {
+            background-color: #2c2c2c; /* Fundo escuro */
+            border: none; /* Remove borda padrão */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 10px 20px; /* Espaçamento interno */
+        }
+
+        .btn-primary:hover {
+            background-color: #444; /* Fundo mais claro ao passar o mouse */
+        }
+
+        /* Links no texto central */
+        .text-center a {
+            color: #2c2c2c; /* Cor escura para o link */
+            text-decoration: none; /* Remove sublinhado */
+        }
+
+        .text-center a:hover {
+            color: #444; /* Fundo mais claro ao passar o mouse */
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center; /* Centraliza o texto */
+            margin-top: 2rem; /* Espaçamento superior */
+            color: #bbb; /* Texto cinza claro */
+        }
+
+        footer a {
+            color: #888; /* Links no rodapé */
+            text-decoration: none; /* Remove sublinhado */
+        }
+
+        footer a:hover {
+            color: #444; /* Cor mais escura ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Formulário de Login -->
+    <div class="login-container">
+        <!-- Logo redimensionada e clicável -->
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="img/Logo_fullP.png" alt="Logo E-narrativas">
+            </a>
+        </div>
+        <h1>Login</h1> <!-- Título do formulário -->
+        <form action="processa_login.php" method="POST"> <!-- Envia os dados para "processa_login.php" via método POST -->
+            <!-- Campo E-mail -->
+            <div class="mb-2"> <!-- Espaçamento inferior do Bootstrap -->
+                <label for="email" class="form-label">E-mail</label> <!-- Rótulo do campo -->
+                <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu e-mail" required> <!-- Campo de entrada obrigatório -->
+            </div>
+            <!-- Campo Senha -->
+            <div class="mb-2">
+                <label for="senha" class="form-label">Senha</label> <!-- Rótulo do campo -->
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite sua senha" required> <!-- Campo de senha obrigatório -->
+            </div>
+            <!-- Botão de login -->
+            <button type="submit" class="btn btn-primary w-100">Entrar</button> <!-- Botão ocupa toda a largura do container -->
+        </form>
+
+        <!-- Link para cadastro -->
+        <p class="text-center mt-2"> <!-- Texto alinhado ao centro -->
+            <a href="cadastro.html">Não tem uma conta? Cadastre-se</a> <!-- Link para página de cadastro -->
+        </p>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>©️ 2024 E-Narrativas. Todos os direitos reservados. <a href="#">Política de Privacidade</a></p> <!-- Direitos autorais e link para a política -->
+        </footer>
+    </div>
+
+    <!-- Scripts do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Funcionalidades interativas do Bootstrap -->
+</body>
+</html>

@@ -20,6 +20,7 @@
 
 ## Aplicações do Projeto:
 - **core**: responsável pelas páginas públicas do projeto (inicial, lista de narrativas, detalhes de narrativa, contato, login, cadastro de usuário);
+- **perfil**: responsável pelas páginas privadas do projeto (perfil e acesso aos cruds);
 - **narrativa**: responsável pelo gerenciamento das narrativas do projeto (narrativa, tipo e estilo);
 - **indicador**: responsável pelo gerenciamento dos indicadores quantitativos do projeto;
 - **dashboard**: responsável pelo gerenciamento da dashboard do projeto;

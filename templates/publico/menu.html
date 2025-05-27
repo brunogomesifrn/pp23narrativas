@@ -1,0 +1,40 @@
+{% load static %}
+
+<!-- Navbar: Barra de Navegação -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container"> <!-- Contêiner do Bootstrap para centralizar e organizar o conteúdo -->
+        <!-- Logotipo e nome da marca -->
+        <a class="navbar-brand" href="{% url 'home' %}"> <!-- Link para a página inicial -->
+            <img src="{% static 'img/Logo_ST.png' %}" alt="Logomarca do E-Narrativas"> <!-- Logotipo -->
+            E-NARRATIVAS <!-- Nome do site -->
+        </a>
+
+        <!-- Barra de Pesquisa -->
+        <form class="search-bar d-flex mx-auto"> <!-- Classe "d-flex" para usar flexbox, e "mx-auto" para centralizar -->
+            <input type="text" class="form-control" placeholder="Pesquise histórias..."> <!-- Campo de texto para busca -->
+            <button type="submit" class="btn btn-primary">Buscar</button> <!-- Botão de envio -->
+        </form>
+
+        <!-- Botão de navegação para telas pequenas -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span> <!-- Ícone do botão de menu -->
+        </button>
+
+        <!-- Links de navegação e menu dropdown -->
+        <div class="collapse navbar-collapse" id="menu"> <!-- Menu colapsável em telas menores -->
+            <ul class="navbar-nav ms-auto"> <!-- Lista de itens do menu, alinhada à direita -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Início</a></li> <!-- Link para a página inicial -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'narrativas' %}">Categorias</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Sobre</a></li> <!-- Link para página Sobre -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'upload' %}">Upload</a></li> <!-- Link para página de Upload -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Contato</a></li> <!-- Link para página de Upload -->
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Logout</a></li> <!-- Link para página de Login -->
+            </ul>
+            <!-- Avatar do usuário -->
+            <div class="user-avatar">
+                <a href="mynarrativas.html">P</a> <!-- Link para página de login com o avatar -->
+            </div>
+        </div>
+    </div>
+</nav>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Narrativas</title>
+</head>
+<body>
+    <h1>Narrativas</h1>
+    <a href="{% url 'registrar_narrativa' %}">Cadastrar nova narrativa</a>
+    <ul>
+        {% for narrativa in narrativas %}
+            <li>
+                {{ narrativa.titulo }} - {{ narrativa.descricao }}
+                <a href="{% url 'editar_narrativa' narrativa.id %}">Editar</a>
+                <a href="{% url 'excluir_narrativa' narrativa.id %}" onclick="return confirm('Deseja realmente excluir?');">Excluir</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

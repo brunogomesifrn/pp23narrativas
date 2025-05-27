@@ -3,8 +3,14 @@ from django.urls import path, include
 from .views import listar_tiponarrativas, cadastrar_tiponarrativas, editar_tiponarrativas, remover_tiponarrativas
 from .views import listar_estilonarrativas, cadastrar_estilonarrativas, editar_estilonarrativas, remover_estilonarrativas
 
+from .views import listar_narrativas, registrar_narrativa, excluir_narrativa
+
 urlpatterns = [
     # CRUD Tipo Narrativa
+    path('', listar_narrativas, name='listar_narrativas'),
+    path('registrar/', registrar_narrativa, name='registrar_narrativa'),
+    path('registrar/<int:id>/', registrar_narrativa, name='editar_narrativa'),
+    path('excluir/<int:id>/', excluir_narrativa, name='excluir_narrativa'),
 
     # Tipo_Narrativa
     path('listar_tipo/', listar_tiponarrativas, name='listar_tiponarrativas'),

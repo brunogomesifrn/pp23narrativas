@@ -1,381 +1,333 @@
-<!DOCTYPE html>
-<html lang="pt-br"> <!-- Define que o idioma principal do documento é Português do Brasil -->
-<head>
-    <!-- Metadados -->
-    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que o layout seja responsivo -->
-    <title>Narrativas</title> <!-- Título que aparece na aba do navegador -->
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"> <!-- Fontes personalizadas -->
+{% extends 'publico/base.html' %}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Estilos pré-definidos do Bootstrap -->
 
-    <!-- Estilos personalizados -->
-    <style>
-        /* Barra de navegação (navbar) */
-        .navbar {
-            background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Gradiente escuro para o fundo */
-            padding: 1rem; /* Espaçamento interno da barra */
-        }
+{% load static %}
 
-        .navbar-brand {
-            font-size: 1.5rem; /* Define o tamanho do texto do nome da marca */
-            font-weight: 700; /* Deixa o texto em negrito */
-            color: white !important; /* Força a cor branca */
-            display: flex; /* Alinha o logo e o texto lado a lado */
-            align-items: center; /* Centraliza verticalmente o logo e o texto */
-        }
+{% block estilo_interno %}
 
-        .navbar-brand img {
-            height: 50px; /* Define a altura fixa do logo */
-            margin-right: 10px; /* Espaçamento entre o logo e o texto */
-        }
+<style>
+    /* Barra de navegação (navbar) */
+    .navbar {
+        background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Gradiente escuro para o fundo */
+        padding: 1rem; /* Espaçamento interno da barra */
+    }
 
-        /* Estilo para links na navbar */
-        .nav-link {
-            color: #bbb !important; /* Links em tom de cinza claro */
-            font-size: 1rem; /* Tamanho do texto dos links */
-        }
+    .navbar-brand {
+        font-size: 1.5rem; /* Define o tamanho do texto do nome da marca */
+        font-weight: 700; /* Deixa o texto em negrito */
+        color: white !important; /* Força a cor branca */
+        display: flex; /* Alinha o logo e o texto lado a lado */
+        align-items: center; /* Centraliza verticalmente o logo e o texto */
+    }
 
-        .nav-link:hover {
-            color: white !important; /* Fica branco ao passar o mouse */
-        }
+    .navbar-brand img {
+        height: 50px; /* Define a altura fixa do logo */
+        margin-right: 10px; /* Espaçamento entre o logo e o texto */
+    }
 
-        /* Barra de pesquisa dentro da navbar */
-        .search-bar {
-            width: 50%; /* Define a largura da barra em 50% */
-            max-width: 400px; /* Limita a largura máxima em 400px */
-        }
+    /* Estilo para links na navbar */
+    .nav-link {
+        color: #bbb !important; /* Links em tom de cinza claro */
+        font-size: 1rem; /* Tamanho do texto dos links */
+    }
 
-        .search-bar input {
-            border-radius: 20px; /* Bordas arredondadas */
-            border: 1px solid #666; /* Borda com tom de cinza escuro */
-            padding: 10px 15px; /* Espaçamento interno */
-            background-color: #2c2c2c; /* Fundo cinza escuro */
-            color: white; /* Texto branco */
-        }
+    .nav-link:hover {
+        color: white !important; /* Fica branco ao passar o mouse */
+    }
 
-        .search-bar input::placeholder {
-            color: #bbb; /* Define a cor do texto placeholder */
-        }
+    /* Barra de pesquisa dentro da navbar */
+    .search-bar {
+        width: 50%; /* Define a largura da barra em 50% */
+        max-width: 400px; /* Limita a largura máxima em 400px */
+    }
 
-        .search-bar button {
-            background-color: #444; /* Fundo cinza escuro para o botão */
-            color: white; /* Texto branco no botão */
-            border: none; /* Remove borda padrão */
-            border-radius: 20px; /* Bordas arredondadas */
-            padding: 10px 20px; /* Espaçamento interno do botão */
-            margin-left: -50px; /* Sobrepõe ligeiramente o botão no input */
-        }
+    .search-bar input {
+        border-radius: 20px; /* Bordas arredondadas */
+        border: 1px solid #666; /* Borda com tom de cinza escuro */
+        padding: 10px 15px; /* Espaçamento interno */
+        background-color: #2c2c2c; /* Fundo cinza escuro */
+        color: white; /* Texto branco */
+    }
 
-        .search-bar button:hover {
-            background-color: #666; /* Muda o fundo do botão ao passar o mouse */
-        }
+    .search-bar input::placeholder {
+        color: #bbb; /* Define a cor do texto placeholder */
+    }
 
-        /* Avatar de usuário (círculo na navbar) */
-        .user-avatar {
-            width: 40px; /* Define largura do círculo */
-            height: 40px; /* Define altura do círculo */
-            border-radius: 50%; /* Deixa o formato circular */
-            background-color: #444; /* Fundo cinza escuro */
-            display: flex; /* Torna o conteúdo interno flexível */
-            align-items: center; /* Centraliza verticalmente o conteúdo */
-            justify-content: center; /* Centraliza horizontalmente o conteúdo */
-            color: white; /* Texto branco */
-            font-size: 1rem; /* Tamanho do texto no avatar */
-            font-weight: bold; /* Deixa o texto em negrito */
-            margin-left: 20px; /* Espaçamento entre o avatar e os links */
-        }
+    .search-bar button {
+        background-color: #444; /* Fundo cinza escuro para o botão */
+        color: white; /* Texto branco no botão */
+        border: none; /* Remove borda padrão */
+        border-radius: 20px; /* Bordas arredondadas */
+        padding: 10px 20px; /* Espaçamento interno do botão */
+        margin-left: -50px; /* Sobrepõe ligeiramente o botão no input */
+    }
 
-        .user-avatar:hover {
-            background-color: #666; /* Fundo mais claro ao passar o mouse */
-        }
-        body {
-            font-family: 'Open Sans', sans-serif; /* Fonte principal */
-            background-color: #f0f0f0; /* Fundo claro */
-            color: #333; /* Cor principal do texto */
-        }
-        h1, h2, h5 {
-            font-family: 'Merriweather', serif; /* Fonte estilizada para os títulos */
-            text-align: center; /* Fonte alinhada ao centro */
-        }
+    .search-bar button:hover {
+        background-color: #666; /* Muda o fundo do botão ao passar o mouse */
+    }
 
-        
-        /* Linhas do botão hamburger */
-        .navbar-toggler-icon {
-            background-color: transparent; /* Remove fundo padrão */
-            position: relative;
-            display: inline-block;
-            width: 30px;
-            height: 20px;
-        }
+    /* Avatar de usuário (círculo na navbar) */
+    .user-avatar {
+        width: 40px; /* Define largura do círculo */
+        height: 40px; /* Define altura do círculo */
+        border-radius: 50%; /* Deixa o formato circular */
+        background-color: #444; /* Fundo cinza escuro */
+        display: flex; /* Torna o conteúdo interno flexível */
+        align-items: center; /* Centraliza verticalmente o conteúdo */
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        color: white; /* Texto branco */
+        font-size: 1rem; /* Tamanho do texto no avatar */
+        font-weight: bold; /* Deixa o texto em negrito */
+        margin-left: 20px; /* Espaçamento entre o avatar e os links */
+    }
 
-        /* Linhas internas do botão hamburger */
-        .navbar-toggler-icon::before,
-        .navbar-toggler-icon::after,
-        .navbar-toggler-icon span {
-            content: ""; /* Define conteúdo vazio para as linhas */
-            display: block; /* Torna as linhas visíveis */
-            background-color: white; /* Altera a cor das linhas para branco */
-            height: 3px; /* Altura das linhas */
-            width: 100%; /* Largura total */
-            margin: 5px 0; /* Espaçamento entre as linhas */
-        }
-        
-        /* Navbar */
-        .navbar {
-            background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Fundo com gradiente escuro */
-            padding: 1rem; /* Espaçamento interno */
-        }
-        .navbar-brand, .nav-link {
-            color: white !important; /* Texto branco */
-        }
-        /* Sidebar */
-        .sidebar {
-            background: linear-gradient(180deg, #2c2c2c, #1e1e1e); /* Fundo com gradiente vertical */
-            color: white; /* Texto branco */
-            padding: 20px; /* Espaçamento interno */
-            border-radius: 10px; /* Bordas arredondadas */
-        }
-        /* Botões primários */
-        .btn-primary {
-            font-size: 1rem; /* Define tamanho do texto no botão */
-            padding: 8px 20px; /* Espaçamento interno */
-            border-radius: 20px; /* Bordas arredondadas */
-            background-color: #2c2c2c; /* Fundo escuro */
-            border: none; /* Remove borda padrão */
-            align-items: center;
-        }
-        .btn-primary:hover {
-            background-color: #444; /* Fundo mais claro ao passar o mouse */
-        }
-        /* Estilo das imagens nas cards */
-        .narrative-card img {
-            border-radius: 5px; /* Bordas arredondadas */
-        }
-        /* Rodapé */
-        footer {
-            background: #1e1e1e; /* Fundo escuro */
-            color: #bbb; /* Texto cinza claro */
-            padding: 1rem; /* Espaçamento interno */
-        }
-        footer a {
-            color: #888; /* Links com tom cinza claro */
-            text-decoration: none; /* Remove sublinhado */
-        }
-        /* Estilo do botão "Leia mais" */
-        .card-body a {
-            display: block; /* Garante que o botão ocupe o espaço completo para centralizar */
-            text-align: center; /* Centraliza o botão horizontalmente */
-            margin-top: 10px; /* Espaçamento superior (opcional) */
-        }
+    .user-avatar:hover {
+        background-color: #666; /* Fundo mais claro ao passar o mouse */
+    }
+    body {
+        font-family: 'Open Sans', sans-serif; /* Fonte principal */
+        background-color: #f0f0f0; /* Fundo claro */
+        color: #333; /* Cor principal do texto */
+    }
+    h1, h2, h5 {
+        font-family: 'Merriweather', serif; /* Fonte estilizada para os títulos */
+        text-align: center; /* Fonte alinhada ao centro */
+    }
 
-        .card:hover {
-            transform: translateY(-5px); /* Elevação ao passar o mouse */
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
-            transition: transform 0.3s, box-shadow 0.3s; /* Animações suaves */
-        }
-    </style>
-</head>
-<body>
-    <!-- Navbar: Barra de Navegação -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container"> <!-- Contêiner do Bootstrap para centralizar e organizar o conteúdo -->
-            <!-- Logotipo e nome da marca -->
-            <a class="navbar-brand" href="index.html"> <!-- Link para a página inicial -->
-                <img src="img/Logo_ST.png" alt="Logomarca do E-Narrativas"> <!-- Logotipo -->
-                E-NARRATIVAS <!-- Nome do site -->
-            </a>
+    
+    /* Linhas do botão hamburger */
+    .navbar-toggler-icon {
+        background-color: transparent; /* Remove fundo padrão */
+        position: relative;
+        display: inline-block;
+        width: 30px;
+        height: 20px;
+    }
 
-            <!-- Barra de Pesquisa -->
-            <form class="search-bar d-flex mx-auto"> <!-- Classe "d-flex" para usar flexbox, e "mx-auto" para centralizar -->
-                <input type="text" class="form-control" placeholder="Pesquise histórias..."> <!-- Campo de texto para busca -->
-                <button type="submit" class="btn btn-primary">Buscar</button> <!-- Botão de envio -->
-            </form>
+    /* Linhas internas do botão hamburger */
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after,
+    .navbar-toggler-icon span {
+        content: ""; /* Define conteúdo vazio para as linhas */
+        display: block; /* Torna as linhas visíveis */
+        background-color: white; /* Altera a cor das linhas para branco */
+        height: 3px; /* Altura das linhas */
+        width: 100%; /* Largura total */
+        margin: 5px 0; /* Espaçamento entre as linhas */
+    }
+    
+    /* Navbar */
+    .navbar {
+        background: linear-gradient(90deg, #1e1e1e, #2c2c2c); /* Fundo com gradiente escuro */
+        padding: 1rem; /* Espaçamento interno */
+    }
+    .navbar-brand, .nav-link {
+        color: white !important; /* Texto branco */
+    }
+    /* Sidebar */
+    .sidebar {
+        background: linear-gradient(180deg, #2c2c2c, #1e1e1e); /* Fundo com gradiente vertical */
+        color: white; /* Texto branco */
+        padding: 20px; /* Espaçamento interno */
+        border-radius: 10px; /* Bordas arredondadas */
+    }
+    /* Botões primários */
+    .btn-primary {
+        font-size: 1rem; /* Define tamanho do texto no botão */
+        padding: 8px 20px; /* Espaçamento interno */
+        border-radius: 20px; /* Bordas arredondadas */
+        background-color: #2c2c2c; /* Fundo escuro */
+        border: none; /* Remove borda padrão */
+        align-items: center;
+    }
+    .btn-primary:hover {
+        background-color: #444; /* Fundo mais claro ao passar o mouse */
+    }
+    /* Estilo das imagens nas cards */
+    .narrative-card img {
+        border-radius: 5px; /* Bordas arredondadas */
+    }
+    /* Rodapé */
+    footer {
+        background: #1e1e1e; /* Fundo escuro */
+        color: #bbb; /* Texto cinza claro */
+        padding: 1rem; /* Espaçamento interno */
+    }
+    footer a {
+        color: #888; /* Links com tom cinza claro */
+        text-decoration: none; /* Remove sublinhado */
+    }
+    /* Estilo do botão "Leia mais" */
+    .card-body a {
+        display: block; /* Garante que o botão ocupe o espaço completo para centralizar */
+        text-align: center; /* Centraliza o botão horizontalmente */
+        margin-top: 10px; /* Espaçamento superior (opcional) */
+    }
 
-            <!-- Botão de navegação para telas pequenas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span> <!-- Ícone do botão de menu -->
-            </button>
+    .card:hover {
+        transform: translateY(-5px); /* Elevação ao passar o mouse */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte */
+        transition: transform 0.3s, box-shadow 0.3s; /* Animações suaves */
+    }
+</style>
 
-            <!-- Links de navegação e menu dropdown -->
-            <div class="collapse navbar-collapse" id="menu"> <!-- Menu colapsável em telas menores -->
-                <ul class="navbar-nav ms-auto"> <!-- Lista de itens do menu, alinhada à direita -->
-                    <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li> <!-- Link para a página inicial -->
-                    <li class="nav-item"><a class="nav-link" href="narrativas.html">Categorias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li> <!-- Link para página Sobre -->
-                    <li class="nav-item"><a class="nav-link" href="upload.html">Upload</a></li> <!-- Link para página de Upload -->
-                    <li class="nav-item"><a class="nav-link" href="upload.html">Contato</a></li> <!-- Link para página de Upload -->
-                    <li class="nav-item"><a class="nav-link" href="login.html">Logout</a></li> <!-- Link para página de Login -->
-                </ul>
-                <!-- Avatar do usuário -->
-                <div class="user-avatar">
-                    <a href="login.html">P</a> <!-- Link para página de login com o avatar -->
-                </div>
+{% endblock %}
+
+{% block conteudo %}
+
+
+
+
+<!-- Conteúdo principal -->
+<div class="container my-4">
+    <div class="row">
+        <!-- Sidebar (filtros) -->
+        <div class="col-md-3">
+            <div class="sidebar">
+                <h5>Filtrar</h5>
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Palavra-chave:</label>
+                        <input type="text" class="form-control" placeholder="Digite..."> <!-- Campo de texto -->
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo:</label>
+                        <select class="form-select"> <!-- Dropdown para selecionar o tipo -->
+                            <option>Selecionar...</option>
+                            <option>Conto</option>
+                            <option>Poesia</option>
+                            <option>Cordel</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estilo:</label>
+                        <select class="form-select"> <!-- Dropdown para selecionar o estilo -->
+                            <option>Selecionar...</option>
+                            <option>Humor</option>
+                            <option>Religioso</option>
+                            <option>Nordestinos</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Filtrar</button> <!-- Botão para aplicar filtros -->
+                </form>
             </div>
         </div>
-    </nav>
 
-    <!-- Conteúdo principal -->
-    <div class="container my-4">
-        <div class="row">
-            <!-- Sidebar (filtros) -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <h5>Filtrar</h5>
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Palavra-chave:</label>
-                            <input type="text" class="form-control" placeholder="Digite..."> <!-- Campo de texto -->
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tipo:</label>
-                            <select class="form-select"> <!-- Dropdown para selecionar o tipo -->
-                                <option>Selecionar...</option>
-                                <option>Conto</option>
-                                <option>Poesia</option>
-                                <option>Cordel</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Estilo:</label>
-                            <select class="form-select"> <!-- Dropdown para selecionar o estilo -->
-                                <option>Selecionar...</option>
-                                <option>Humor</option>
-                                <option>Religioso</option>
-                                <option>Nordestinos</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Filtrar</button> <!-- Botão para aplicar filtros -->
-                    </form>
-                </div>
-            </div>
-
-            <!-- Cards de narrativas -->
-            <div class="col-md-9">
-                <div class="row g-3">
-                    <!-- Card 1 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Humor.jpg" class="card-img-top" alt="Narrativa 1"> <!-- Imagem da narrativa -->
-                            <div class="card-body">
-                                <h5 class="card-title">Título 1</h5> <!-- Título da narrativa -->
-                                <p class="card-text">Resumo da narrativa...</p> <!-- Resumo -->
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Nordestinos.jpg" class="card-img-top" alt="Narrativa 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 2</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Religioso.jpg" class="card-img-top" alt="Narrativa 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 3</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Nordestinos.jpg" class="card-img-top" alt="Narrativa 4">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 4</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 5 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Religioso.jpg" class="card-img-top" alt="Narrativa 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 5</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 6 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Humor.jpg" class="card-img-top" alt="Narrativa 6">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 6</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 7 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Religioso.jpg" class="card-img-top" alt="Narrativa 7">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 7</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 8 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Nordestinos.jpg" class="card-img-top" alt="Narrativa 8">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 8</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 9 -->
-                    <div class="col-md-4">
-                        <div class="card narrative-card">
-                            <img src="img/Humor.jpg" class="card-img-top" alt="Narrativa 9">
-                            <div class="card-body">
-                                <h5 class="card-title">Título 9</h5>
-                                <p class="card-text">Resumo da narrativa...</p>
-                                <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
-                            </div>
+        <!-- Cards de narrativas -->
+        <div class="col-md-9">
+            <div class="row g-3">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Humor.jpg' %}" class="card-img-top" alt="Narrativa 1"> <!-- Imagem da narrativa -->
+                        <div class="card-body">
+                            <h5 class="card-title">Título 1</h5> <!-- Título da narrativa -->
+                            <p class="card-text">Resumo da narrativa...</p> <!-- Resumo -->
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- Paginação -->
-                <nav class="my-3">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    </ul>
-                </nav>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Nordestinos.jpg' %}" class="card-img-top" alt="Narrativa 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 2</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Religioso.jpg' %}" class="card-img-top" alt="Narrativa 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 3</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Nordestinos.jpg' %}" class="card-img-top" alt="Narrativa 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 4</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Religioso.jpg' %}" class="card-img-top" alt="Narrativa 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 5</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Humor.jpg' %}" class="card-img-top" alt="Narrativa 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 6</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Religioso.jpg' %}" class="card-img-top" alt="Narrativa 7">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 7</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Nordestinos.jpg' %}" class="card-img-top" alt="Narrativa 8">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 8</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 9 -->
+                <div class="col-md-4">
+                    <div class="card narrative-card">
+                        <img src="{% static 'img/Humor.jpg' %}" class="card-img-top" alt="Narrativa 9">
+                        <div class="card-body">
+                            <h5 class="card-title">Título 9</h5>
+                            <p class="card-text">Resumo da narrativa...</p>
+                            <a href="detalhenarrativas.html" class="btn btn-primary">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Paginação -->
+            <nav class="my-3">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
+</div>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>© 2024 Narrativas. Todos os direitos reservados.</p> <!-- Informações de direitos -->
-        <a href="#">Termos de Uso</a> | <a href="#">Política de Privacidade</a> <!-- Links para páginas legais -->
-    </footer>
-
-    <!-- Scripts do Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> <!-- Funcionalidades interativas do Bootstrap -->
-</body>
-</html>
+{% endblock %}
