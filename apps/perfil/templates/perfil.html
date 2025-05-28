@@ -1,2 +1,49 @@
 <!-- Essa é a página inicial de perfil -->
 <!-- Importar a base da pasta templates/privado -->
+
+{% extends 'privado/base.html' %}
+
+
+{% load static %}
+
+{% block conteudo %}
+
+ <!-- Conteúdo principal -->
+    <div class="content">
+        <h1>Minhas Narrativas</h1>
+        <!-- Botão de adicionar narrativa -->
+        <div class="btn-add-container">
+            <a href="newnarrativas.html" class="btn-add">Adicionar Nova Narrativa</a>
+        </div>
+
+        <!-- Tabela de narrativas -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Narrativa Exemplo 1</td>
+                    <td><button class="btn-edit">Editar</button></td>
+                    <td><button class="btn-remove">Remover</button></td>
+                </tr>
+                <tr>
+                    <td>Narrativa Exemplo 2</td>
+                    <td><button class="btn-edit">Editar</button></td>
+                    <td><button class="btn-remove">Remover</button></td>
+                </tr>
+                <tr>
+                    <td>Narrativa Exemplo 3</td>
+                    <td><button class="btn-edit">Editar</button></td>
+                    <td><button class="btn-remove">Remover</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
