@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.narrativa',
     'apps.indicador',
     'apps.dashboard',
+    'apps.perfil'
 ]
 
 MIDDLEWARE = [

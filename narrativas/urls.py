@@ -20,6 +20,8 @@ urlpatterns = [
 
     path('dashboard/', include('apps.dashboard.urls')),
 
+    path('perfil/', include('apps.perfil.urls')),
+
 
 
     path('admin/', admin.site.urls),
