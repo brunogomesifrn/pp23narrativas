@@ -6,6 +6,10 @@ from .views import listar_estilonarrativas, cadastrar_estilonarrativas, editar_e
 from .views import listar_narrativas, registrar_narrativa, excluir_narrativa
 
 urlpatterns = [
+
+    # CRUD Narrativa
+
+
     # CRUD Tipo Narrativa
     path('', listar_narrativas, name='listar_narrativas'),
     path('registrar/', registrar_narrativa, name='registrar_narrativa'),

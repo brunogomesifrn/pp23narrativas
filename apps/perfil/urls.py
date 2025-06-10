@@ -4,4 +4,5 @@ from.views import perfil
 
 urlpatterns = [
     path('', perfil, name='perfil'),
+    
 ]

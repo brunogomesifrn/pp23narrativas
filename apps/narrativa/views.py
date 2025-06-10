@@ -5,6 +5,14 @@ from .models import Estilo_Narrativa
 from .forms import Estilo_Narrativaform
 from .models import Narrativa
 
+
+# =========== CRUD Narrativa ==============
+
+
+
+
+
+
 # =========== CRUD Tipo Narrativa ==============
 
 def listar_tiponarrativas(request):
