@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if narrativa %}Editar Narrativa{% else %}Cadastrar Narrativa{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form_narrativa.instance.pk %}Editar Narrativa{% else %}Adicionar Nova Narrativa{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form_narrativa.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'listar_narrativas' %}">Voltar para a lista</a>
+</body>
+</html>

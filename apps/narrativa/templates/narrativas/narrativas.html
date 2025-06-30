@@ -4,16 +4,30 @@
     <title>Narrativas</title>
 </head>
 <body>
-    <h1>Narrativas</h1>
-    <a href="{% url 'registrar_narrativa' %}">Cadastrar nova narrativa</a>
-    <ul>
-        {% for narrativa in narrativas %}
-            <li>
-                {{ narrativa.titulo }} - {{ narrativa.descricao }}
-                <a href="{% url 'editar_narrativa' narrativa.id %}">Editar</a>
-                <a href="{% url 'excluir_narrativa' narrativa.id %}" onclick="return confirm('Deseja realmente excluir?');">Excluir</a>
-            </li>
+    <h1>Lista de Narrativas</h1>
+    <a href="{% url 'cadastrar_narrativa' %}">Adicionar Nova Narrativa</a>
+    <table border="1">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for narrativa in todas_narrativas %}
+        <tr>
+            <td>{{ narrativa.id }}</td>
+            <td>{{ narrativa.titulo }}</td>
+            <td>{{ narrativa.descricao }}</td>
+            <td>
+                <a href="{% url 'editar_narrativa' narrativa.id %}">Editar</a> |
+                <a href="{% url 'remover_narrativa' narrativa.id %}" onclick="return confirm('Tem certeza que deseja remover esta narrativa?');">Remover</a>
+            </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </tbody>
+</table>
 </body>
 </html>

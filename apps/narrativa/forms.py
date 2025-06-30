@@ -1,8 +1,12 @@
 from django.forms import ModelForm
-from .models import Tipo_Narrativa
-from .models import Estilo_Narrativa
+from .models import Tipo_Narrativa, Estilo_Narrativa,  Narrativa
 
 # Adicionar Narrativa
+
+class NarrativaForm(ModelForm):
+    class Meta:
+        model = Narrativa
+        fields = '__all__' 
 
 class Tipo_NarrativaForm(ModelForm):
     class Meta:

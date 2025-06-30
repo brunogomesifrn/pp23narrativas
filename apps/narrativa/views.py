@@ -1,13 +1,42 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Tipo_Narrativa
-from .forms import Tipo_NarrativaForm
-from .models import Estilo_Narrativa
-from .forms import Estilo_Narrativaform
-from .models import Narrativa
+from .models import Tipo_Narrativa, Estilo_Narrativa, Narrativa
+from .forms import Tipo_NarrativaForm, Estilo_Narrativaform, NarrativaForm
 
 
 # =========== CRUD Narrativa ==============
 
+def listar_narrativas(request):
+    narrativas = Narrativa.objects.all()
+    contexto = {
+        'todas_narrativas': narrativas
+    }
+    return render(request, 'narrativas/narrativas.html', contexto)
+
+def cadastrar_narrativa(request):
+    form = NarrativaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_narrativas')
+    contexto = {
+        'form_narrativa': form
+    }
+    return render(request, 'narrativas/narrativas_adicionar.html', contexto)
+
+def editar_narrativa(request, id):
+    narrativa = get_object_or_404(Narrativa, pk=id) # Usando get_object_or_404 para melhor tratamento de erros
+    form = NarrativaForm(request.POST or None, instance=narrativa)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_narrativas')
+    contexto = {
+        'form_narrativa': form
+    }
+    return render(request, 'narrativas/narrativas_adicionar.html', contexto)
+
+def remover_narrativa(request, id):
+    narrativa_remover = get_object_or_404(Narrativa, pk=id) # Usando get_object_or_404
+    narrativa_remover.delete()
+    return redirect('listar_narrativas')
 
 
 
@@ -91,31 +120,3 @@ def remover_estilonarrativas(request, id):
 
 
 
-# =========== CRUD Narrativa ==============
-
-def listar_narrativas(request):
-    narrativas = Narrativa.objects.all()
-    return render(request, 'narrativas/narrativas.html', {'narrativas': narrativas})
-
-def registrar_narrativa(request, id=None):
-    narrativa = None if id is None else get_object_or_404(Narrativa, id=id)
-    
-    if request.method == 'POST':
-        titulo = request.POST['titulo']
-        descricao = request.POST['descricao']
-        
-        if narrativa:
-            narrativa.titulo = titulo
-            narrativa.descricao = descricao
-            narrativa.save()
-        else:
-            Narrativa.objects.create(titulo=titulo, descricao=descricao)
-        
-        return redirect('listar_narrativas')
-    
-    return render(request, 'narrativas/narrativas_registrar.html', {'narrativa': narrativa})
-
-def excluir_narrativa(request, id):
-    narrativa = get_object_or_404(Narrativa, id=id)
-    narrativa.delete()
-    return redirect('listar_narrativas')
