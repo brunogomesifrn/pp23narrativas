@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>{% if form_narrativa.instance.pk %}Editar Narrativa{% else %}Adicionar Nova Narrativa{% endif %}</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form_narrativa.as_p }}
         <button type="submit">Salvar</button>

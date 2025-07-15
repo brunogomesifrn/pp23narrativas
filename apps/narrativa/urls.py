@@ -4,6 +4,8 @@ from .views import listar_tiponarrativas, cadastrar_tiponarrativas, editar_tipon
 from .views import listar_estilonarrativas, cadastrar_estilonarrativas, editar_estilonarrativas, remover_estilonarrativas
 from .views import listar_narrativas, cadastrar_narrativa, editar_narrativa, remover_narrativa
 
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -27,4 +29,4 @@ urlpatterns = [
     path('editar_estilo/<int:id>/', editar_estilonarrativas, name='editar_estilonarrativas'),
     path('remover_estilo/<int:id>', remover_estilonarrativas, name='remover_estilonarrativas'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

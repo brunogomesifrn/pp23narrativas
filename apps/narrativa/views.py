@@ -13,7 +13,7 @@ def listar_narrativas(request):
     return render(request, 'narrativas/narrativas.html', contexto)
 
 def cadastrar_narrativa(request):
-    form = NarrativaForm(request.POST or None)
+    form = NarrativaForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('listar_narrativas')
@@ -24,7 +24,7 @@ def cadastrar_narrativa(request):
 
 def editar_narrativa(request, id):
     narrativa = get_object_or_404(Narrativa, pk=id) # Usando get_object_or_404 para melhor tratamento de erros
-    form = NarrativaForm(request.POST or None, instance=narrativa)
+    form = NarrativaForm(request.POST or None, request.FILES or None, instance=narrativa)
     if form.is_valid():
         form.save()
         return redirect('listar_narrativas')
