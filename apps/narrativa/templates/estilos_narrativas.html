@@ -1,23 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'privado/base.html' %}
+
+{% load static %}
+
+
+{% block estilo_interno %}
+<style>
+    body {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente o contêiner principal */
+        align-items: flex-start; /* Alinha o conteúdo ao topo, para evitar centralização vertical excessiva em listas longas */
+        min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px; /* Adiciona um pouco de padding ao redor do corpo da página */
+        box-sizing: border-box; /* Inclui padding na largura e altura total */
+    }
+
+    .list-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 700px; /* Largura máxima para a lista de estilos */
+        box-sizing: border-box;
+        text-align: center; /* Centraliza o texto dentro do contêiner */
+    }
+
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+    }
+
+    .cadastro-link-wrapper {
+        margin-bottom: 20px; /* Espaço abaixo do link de cadastro */
+    }
+
+    .cadastro-link {
+        display: inline-block;
+        background-color: #3498db; /* Cor azul para o botão de cadastro */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    .cadastro-link:hover {
+        background-color: #2980b9;
+    }
+
+    .list-description {
+        font-size: 1.1em;
+        color: #555;
+        margin-bottom: 25px; /* Espaço abaixo da descrição e antes da lista */
+    }
+
+    .list-item {
+        background-color: #f9f9f9; /* Fundo suave para cada item da lista */
+        border: 1px solid #eee; /* Borda suave */
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px; /* Espaço entre os itens da lista */
+        display: flex; /* Usa flexbox para alinhar conteúdo e links */
+        justify-content: space-between; /* Espaça o título e os botões */
+        align-items: center; /* Alinha verticalmente */
+        text-align: left; /* Alinha o texto do item à esquerda */
+        flex-wrap: wrap; /* Permite que os itens se quebrem em telas menores */
+    }
+
+    .list-item span { /* Para o texto "Título: {{estilo.nome}}" */
+        font-size: 1.1em;
+        color: #333;
+        flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
+        margin-right: 15px; /* Espaço entre o texto e os links */
+    }
+
+    .list-item .actions {
+        display: flex;
+        gap: 10px; /* Espaço entre os botões */
+        flex-shrink: 0; /* Impede que os botões encolham */
+    }
+
+    .list-item a {
+        background-color: #2ecc71; /* Cor verde para EDITAR */
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
+    }
+
+    .list-item a:hover {
+        background-color: #27ae60;
+    }
+
+    .list-item a.remove-link { /* Classe específica para REMOVER */
+        background-color: #e74c3c; /* Cor vermelha para REMOVER */
+    }
+
+    .list-item a.remove-link:hover {
+        background-color: #c0392b;
+    }
+
+    .no-items-message { /* Nome mais genérico para a mensagem de vazio */
+        font-style: italic;
+        color: #777;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+    }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="list-container">
     <h1>Estilos</h1>
-    <P><a href="{% url 'cadastrar_estilonarrativa' %}"> CADASTRAR </a></P>
-    <p> Listagem de Estilos de Narrativas: </p>
+
+    <div class="cadastro-link-wrapper">
+        <a href="{% url 'cadastrar_estilonarrativa' %}" class="cadastro-link">CADASTRAR NOVO ESTILO</a>
+    </div>
+    
+    <p class="list-description">Listagem de Estilos de Narrativas:</p>
+
     {% for estilo in todos_estilos %}
-    <p>
-        Título: {{estilo.nome}}
-        | <a href="{% url 'editar_estilonarrativas' estilo.id %}"> EDITAR </a>
-        | <a href="{% url 'remover_estilonarrativas' estilo.id %}"> REMOVER </a>
-    </p>
+    <div class="list-item">
+        <span>Título: {{estilo.nome}}</span>
+        <div class="actions">
+            <a href="{% url 'editar_estilonarrativas' estilo.id %}">EDITAR</a>
+            <a href="{% url 'remover_estilonarrativas' estilo.id %}" class="remove-link">REMOVER</a>
+        </div>
+    </div>
     {% empty %}
-    <p> Nenhum Estilo Cadastrado</p>
+    <p class="no-items-message">Nenhum Estilo Cadastrado</p>
     {% endfor %}
-</body>
-</html>
+</div>
+
+{% endblock %}

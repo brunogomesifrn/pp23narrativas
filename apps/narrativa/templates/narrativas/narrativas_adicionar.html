@@ -1,15 +1,132 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% if narrativa %}Editar Narrativa{% else %}Cadastrar Narrativa{% endif %}</title>
-</head>
-<body>
-    <h1>{% if form_narrativa.instance.pk %}Editar Narrativa{% else %}Adicionar Nova Narrativa{% endif %}</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form_narrativa.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
-    <a href="{% url 'listar_narrativas' %}">Voltar para a lista</a>
-</body>
-</html>
+{% extends 'privado/base.html' %}
+
+{% load static %}
+
+
+{% block estilo_interno %}
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte um pouco diferente */
+    }
+
+    .form-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px; /* Cantos um pouco mais arredondados */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+        width: 100%;
+        max-width: 550px; /* Um pouco mais largo */
+        box-sizing: border-box;
+    }
+
+    h1 {
+        text-align: center;
+        color: #2c3e50; /* Cor mais escura para o título */
+        margin-bottom: 35px;
+        font-size: 2em; /* Título maior */
+    }
+
+    /* Estilizando os parágrafos que contêm os campos do formulário */
+    form p {
+        margin-bottom: 18px; /* Espaço entre os campos */
+    }
+
+    /* Estilizando os rótulos (labels) */
+    form label {
+        display: block; /* Cada label em sua própria linha */
+        margin-bottom: 8px; /* Espaço entre o label e o campo */
+        font-weight: bold; /* Texto em negrito */
+        color: #34495e; /* Cor para os labels */
+        font-size: 0.95em;
+    }
+
+    /* Estilizando os campos de input e textarea */
+    form input[type="text"],
+    form input[type="email"], /* Se tiver outros tipos de input */
+    form input[type="number"],
+    form textarea,
+    form select {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 12px 15px; /* Preenchimento interno */
+        border: 1px solid #ccc; /* Borda suave */
+        border-radius: 5px; /* Cantos arredondados */
+        box-sizing: border-box; /* Importante para o padding não adicionar largura */
+        font-size: 1em; /* Tamanho da fonte */
+        color: #555;
+        transition: border-color 0.3s ease; /* Efeito de transição na borda */
+    }
+
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="number"]:focus,
+    form textarea:focus,
+    form select:focus {
+        border-color: #3498db; /* Muda a cor da borda ao focar */
+        outline: none; /* Remove o contorno padrão do navegador */
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); /* Sombra ao focar */
+    }
+
+    /* Estilizando o botão de submit */
+    button[type="submit"] {
+        background-color: #2ecc71; /* Cor verde para o botão de salvar */
+        color: white; /* Texto branco */
+        padding: 14px 25px; /* Preenchimento */
+        border: none; /* Sem borda */
+        border-radius: 5px;
+        cursor: pointer; /* Mãozinha ao passar o mouse */
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito de transição */
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-top: 25px; /* Espaço acima do botão */
+    }
+
+    button[type="submit"]:hover {
+        background-color: #27ae60; /* Cor mais escura ao passar o mouse */
+        transform: translateY(-2px); /* Efeito sutil de levantar */
+    }
+
+    /* Estilizando o link "Voltar" */
+    a {
+        display: block; /* Ocupa a própria linha */
+        text-align: center; /* Centraliza o texto */
+        margin-top: 25px; /* Espaço acima do link */
+        color: #3498db; /* Cor azul para o link */
+        text-decoration: none; /* Remove o sublinhado padrão */
+        font-size: 1em;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #2980b9; /* Cor mais escura ao passar o mouse */
+        text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    }
+</style>
+
+{% endblock %}
+
+{% block conteudo %}
+
+
+<div class="main-content-wrapper">
+    
+
+    <div class="form-container">
+        <h1>Adicionar Narrativa</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form_narrativa.as_p }}
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

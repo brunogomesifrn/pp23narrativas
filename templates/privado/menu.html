@@ -11,11 +11,11 @@
         <!-- Links do menu lateral -->
         <a href="#">Minhas Narrativas</a>
         <a href="#">Favoritas</a>
-        <a href="#">Conquistas</a>
-        <a href="#">Gerenciar Narrativas</a>
-        <a href="#">Gerenciar Tipos</a>
-        <a href="#">Gerenciar Estilos</a>
+        <a href="{% url 'listar_narrativas' %}">Gerenciar Narrativas</a>
+        <a href="{% url 'listar_tiponarrativas' %}">Gerenciar Tipos</a>
+        <a href="{% url 'listar_estilonarrativas' %}">Gerenciar Estilos</a>
         <a href="#">Gerenciar Usuários</a>
         <!-- Botão de Logout -->
         <a href="login.html" class="btn-logout">Logout</a>
+
     </div>

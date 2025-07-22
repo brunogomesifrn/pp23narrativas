@@ -1,17 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale">
-    <title>Document</title>
-</head>
-<body>
-    <h1> CADASTRAR TIPO </h1>
+{% extends 'privado/base.html' %}
+
+{% load static %}
+
+
+{% block estilo_interno %}
+<style>
+    body {
+        display: flex; /* Ativa o flexbox no body */
+        justify-content: center; /* Centraliza horizontalmente o conteúdo */
+        align-items: center; /* Centraliza verticalmente o conteúdo */
+        min-height: 100vh; /* Garante que o body ocupe a altura total da viewport */
+        margin: 0; /* Remove a margem padrão do body */
+        background-color: #f4f4f4; /* Cor de fundo suave para a página */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte padrão */
+        padding: 20px; /* Adiciona um pouco de padding geral para evitar que o conteúdo cole nas bordas */
+        box-sizing: border-box; /* Inclui padding e borda na largura total */
+    }
+
+    .form-container {
+        background-color: #fff; /* Fundo branco para o contêiner do formulário */
+        padding: 40px; /* Espaçamento interno */
+        border-radius: 10px; /* Cantos arredondados */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+        width: 100%; /* Largura total */
+        max-width: 500px; /* Largura máxima do formulário */
+        box-sizing: border-box; /* Inclui padding e borda na largura total */
+        text-align: center; /* Para centralizar o título e o botão, se forem inline */
+    }
+
+    h1 {
+        text-align: center; /* Centraliza o título */
+        color: #2c3e50; /* Cor do título */
+        margin-bottom: 35px; /* Espaço abaixo do título */
+        font-size: 2em; /* Título maior */
+    }
+
+    /* Estilizando os parágrafos que contêm os campos do formulário */
+    /* Note que aqui você está renderizando {{ form_tipos }},
+       que normalmente renderiza cada campo dentro de uma tag <p>. */
+    form p {
+        margin-bottom: 18px; /* Espaço entre os campos */
+        text-align: left; /* Alinha o conteúdo dos parágrafos à esquerda */
+    }
+
+    /* Estilizando os rótulos (labels) */
+    form label {
+        display: block; /* Cada label em sua própria linha */
+        margin-bottom: 8px; /* Espaço entre o label e o campo */
+        font-weight: bold; /* Texto em negrito */
+        color: #34495e; /* Cor para os labels */
+        font-size: 0.95em;
+    }
+
+    /* Estilizando os campos de input */
+    form input[type="text"],
+    form input[type="email"], /* Inclua outros tipos de input se houver */
+    form input[type="number"],
+    form textarea,
+    form select {
+        width: 100%; /* Ocupa toda a largura disponível */
+        padding: 12px 15px; /* Preenchimento interno */
+        border: 1px solid #ccc; /* Borda suave */
+        border-radius: 5px; /* Cantos arredondados */
+        box-sizing: border-box; /* Importante para o padding não adicionar largura */
+        font-size: 1em; /* Tamanho da fonte */
+        color: #555;
+        transition: border-color 0.3s ease; /* Efeito de transição na borda */
+    }
+
+    form input[type="text"]:focus,
+    form input[type="email"]:focus,
+    form input[type="number"]:focus,
+    form textarea:focus,
+    form select:focus {
+        border-color: #3498db; /* Muda a cor da borda ao focar */
+        outline: none; /* Remove o contorno padrão do navegador */
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); /* Sombra ao focar */
+    }
+
+    /* Estilizando o botão de submit */
+    input[type="submit"] {
+        background-color: #2ecc71; /* Cor verde para o botão de salvar */
+        color: white; /* Texto branco */
+        padding: 14px 25px; /* Preenchimento */
+        border: none; /* Sem borda */
+        border-radius: 5px;
+        cursor: pointer; /* Mãozinha ao passar o mouse */
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito de transição */
+        width: 100%; /* Botão ocupa toda a largura */
+        margin-top: 25px; /* Espaço acima do botão */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #27ae60; /* Cor mais escura ao passar o mouse */
+        transform: translateY(-2px); /* Efeito sutil de levantar */
+    }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="form-container">
+    <h1>CADASTRAR TIPO</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form_tipos }}
+        {{ form_tipos.as_p }} {# Use .as_p para renderizar cada campo em um parágrafo #}
         <p><input type="submit" value="Cadastrar" /></p>
     </form>
-</body>
-</html>
+</div>
+
+{% endblock %}

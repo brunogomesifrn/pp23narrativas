@@ -1,33 +1,187 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Narrativas</title>
-</head>
-<body>
+{% extends 'privado/base.html' %}
+
+{% load static %}
+
+
+{% block estilo_interno %}
+<style>
+    body {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente o contêiner principal */
+        align-items: flex-start; /* Alinha o conteúdo ao topo */
+        min-height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .list-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 900px; /* Um pouco mais largo para a lista de narrativas */
+        box-sizing: border-box;
+        text-align: center; /* Para centralizar o título e o link de adicionar */
+    }
+
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2.2em;
+    }
+
+    .add-narrative-link-wrapper {
+        margin-bottom: 30px; /* Espaço abaixo do link de adicionar */
+    }
+
+    .add-narrative-link {
+        display: inline-block;
+        background-color: #3498db; /* Cor azul para o botão de adicionar */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-narrative-link:hover {
+        background-color: #2980b9;
+    }
+
+    .narrative-list {
+        display: flex;
+        flex-direction: column; /* Itens em coluna */
+        gap: 15px; /* Espaço entre os cartões de narrativa */
+    }
+
+    .narrative-item {
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: left; /* Alinha o conteúdo do cartão à esquerda */
+        display: flex; /* Usa flexbox para o layout interno do cartão */
+        flex-direction: column; /* Organiza os campos verticalmente */
+        gap: 10px; /* Espaço entre os campos dentro do cartão */
+    }
+
+    .narrative-item strong {
+        color: #333;
+        font-size: 1.1em;
+    }
+
+    .narrative-item .detail-row {
+        display: flex;
+        /* flex-wrap: wrap; */ /* Opcional: quebra a linha se o conteúdo for muito longo */
+        align-items: baseline; /* Alinha o texto na linha de base */
+    }
+    .narrative-item .detail-row span.label {
+        font-weight: bold;
+        color: #555;
+        margin-right: 8px;
+        flex-shrink: 0; /* Impede que o label encolha */
+    }
+    .narrative-item .detail-row span.value {
+        color: #333;
+        flex-grow: 1; /* Permite que o valor ocupe o espaço restante */
+    }
+
+    .narrative-item .actions {
+        display: flex;
+        justify-content: flex-end; /* Alinha os botões à direita dentro do cartão */
+        gap: 10px; /* Espaço entre os botões de ação */
+        margin-top: 15px; /* Espaço entre o conteúdo e os botões de ação */
+    }
+
+    .narrative-item .actions a {
+        background-color: #2ecc71; /* Cor verde para Editar */
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: background-color 0.3s ease;
+    }
+
+    .narrative-item .actions a:hover {
+        background-color: #27ae60;
+    }
+
+    .narrative-item .actions a.remove-link {
+        background-color: #e74c3c; /* Cor vermelha para Remover */
+    }
+
+    .narrative-item .actions a.remove-link:hover {
+        background-color: #c0392b;
+    }
+
+    .no-narratives-message {
+        font-style: italic;
+        color: #777;
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+    }
+
+    /* Estilos específicos para telas menores (responsividade) */
+    @media (max-width: 600px) {
+        .list-container {
+            padding: 20px;
+        }
+        .narrative-item {
+            padding: 15px;
+        }
+        .narrative-item .actions {
+            flex-direction: column; /* Empilha os botões em telas pequenas */
+            align-items: stretch; /* Estica os botões para a largura total */
+        }
+        .narrative-item .actions a {
+            text-align: center; /* Centraliza o texto nos botões empilhados */
+        }
+    }
+</style>
+{% endblock %}
+
+{% block conteudo %}
+
+<div class="list-container">
     <h1>Lista de Narrativas</h1>
-    <a href="{% url 'cadastrar_narrativa' %}">Adicionar Nova Narrativa</a>
-    <table border="1">
-        <thead>
-            <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Ações</th>
-            </tr>
-        </thead>
-    <tbody>
+
+    <div class="add-narrative-link-wrapper">
+        <a href="{% url 'cadastrar_narrativa' %}" class="add-narrative-link">Adicionar Nova Narrativa</a>
+    </div>
+    
+    <div class="narrative-list">
         {% for narrativa in todas_narrativas %}
-        <tr>
-            <td>{{ narrativa.id }}</td>
-            <td>{{ narrativa.titulo }}</td>
-            <td>{{ narrativa.descricao }}</td>
-            <td>
-                <a href="{% url 'editar_narrativa' narrativa.id %}">Editar</a> |
-                <a href="{% url 'remover_narrativa' narrativa.id %}" onclick="return confirm('Tem certeza que deseja remover esta narrativa?');">Remover</a>
-            </td>
-        </tr>
+        <div class="narrative-item">
+            <div class="detail-row">
+                <span class="label">ID:</span>
+                <span class="value">{{ narrativa.id }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Título:</span>
+                <span class="value">{{ narrativa.titulo }}</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Descrição:</span>
+                <span class="value">{{ narrativa.descricao }}</span>
+            </div>
+            
+            <div class="actions">
+                <a href="{% url 'editar_narrativa' narrativa.id %}">Editar</a>
+                <a href="{% url 'remover_narrativa' narrativa.id %}" onclick="return confirm('Tem certeza que deseja remover esta narrativa?');" class="remove-link">Remover</a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="no-narratives-message">Nenhuma Narrativa Cadastrada</p>
         {% endfor %}
-    </tbody>
-</table>
-</body>
-</html>
+    </div>
+</div>
+
+{% endblock %}
