@@ -1,6 +1,19 @@
 from django.forms import ModelForm
-from .models import Tipo_Narrativa
-from .models import Estilo_Narrativa
+from django import forms
+from .models import Tipo_Narrativa, Estilo_Narrativa,  Narrativa
+
+# Adicionar Narrativa
+
+class NarrativaForm(ModelForm):
+    class Meta:
+        model = Narrativa
+        fields = '__all__' 
+        widgets = {
+            'tipo_narrativa': forms.RadioSelect(),
+            'estilo_narrativa': forms.CheckboxSelectMultiple(),
+        }
+
+
 
 class Tipo_NarrativaForm(ModelForm):
     class Meta:

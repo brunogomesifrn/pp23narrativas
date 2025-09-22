@@ -14,11 +14,15 @@ urlpatterns = [
 
     path('', include('apps.core.urls')),
 
-    path('narrativas/', include('apps.narrativa.urls')),
+    path('narrativa/', include('apps.narrativa.urls')),
 
-    path('indicadores/', include('apps.indicador.urls')),
+    path('indicador/', include('apps.indicador.urls')),
 
     path('dashboard/', include('apps.dashboard.urls')),
+
+    path('perfil/', include('apps.perfil.urls')),
+
+
 
     path('admin/', admin.site.urls),
 

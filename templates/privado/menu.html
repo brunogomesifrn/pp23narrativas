@@ -1,1 +1,21 @@
 <!-- trazer o código de base.html que possui o menu, e depois importar este arquivo em base -->
+
+{% load static %}
+
+ <!-- Menu lateral -->
+    <div class="sidebar">
+        <!-- Logo clicável -->
+        <a href="index.html">
+            <img src={% static 'img/Logo_full.png' %} alt="Logo E-Narrativas" class="logo">
+        </a>
+        <!-- Links do menu lateral -->
+        <a href="#">Minhas Narrativas</a>
+        <a href="#">Favoritas</a>
+        <a href="{% url 'listar_narrativas' %}">Gerenciar Narrativas</a>
+        <a href="{% url 'listar_tiponarrativas' %}">Gerenciar Tipos</a>
+        <a href="{% url 'listar_estilonarrativas' %}">Gerenciar Estilos</a>
+        <a href="#">Gerenciar Usuários</a>
+        <!-- Botão de Logout -->
+        <a href="login.html" class="btn-logout">Logout</a>
+
+    </div>

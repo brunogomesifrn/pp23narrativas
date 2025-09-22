@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.narrativa',
     'apps.indicador',
     'apps.dashboard',
+    'apps.perfil'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,7 @@ STATICFILES_DIRS = ['static']
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = 'media'

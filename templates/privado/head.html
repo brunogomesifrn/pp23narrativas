@@ -1,1 +1,131 @@
 <!-- trazer o código de base.html que possui o head, e depois importar este arquivo em base -->
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Narrativas</title>
+    <!-- Fonte personalizada do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Biblioteca Bootstrap para estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo geral para o corpo da página */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* Estilo para os títulos */
+        h1, h2 {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* Estilo do menu lateral (sidebar) */
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e1e;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+        }
+
+        /* Estilo para os links do menu lateral */
+        .sidebar a {
+            color: #bbb; /* Cor cinza claro */
+            text-decoration: none; /* Remove sublinhado */
+            display: block; /* Cada link ocupa uma linha */
+            margin: 1rem 0; /* Espaçamento entre links */
+        }
+
+        .sidebar a:hover {
+            color: white; /* Muda a cor ao passar o mouse */
+        }
+
+        /* Estilo do botão de Logout */
+        .btn-logout {
+            background-color: #d9534f; /* Vermelho visível */
+            color: white; /* Texto branco */
+            text-align: center;
+            padding: 10px 15px; /* Espaçamento interno */
+            border: none; /* Remove borda */
+            border-radius: 5px; /* Bordas arredondadas */
+            margin-top: 1rem; /* Espaçamento acima */
+            width: 100%; /* Ocupa toda a largura do menu */
+            display: block; /* Botão como bloco */
+        }
+
+        .btn-logout:hover {
+            background-color: #c9302c; /* Vermelho mais forte no hover */
+        }
+
+        /* Estilo para a logo */
+        .logo {
+            display: block; /* Centraliza a logo */
+            margin: 0 auto 20px auto; /* Margem para separação */
+            width: 100%; /* Largura total do menu */
+            max-width: 200px; /* Tamanho máximo */
+        }
+
+        /* Estilo para o conteúdo principal */
+        .content {
+            margin-left: 250px; /* Empurra o conteúdo para direita, respeitando o menu */
+            padding: 2rem;
+        }
+
+        /* Estilo para o botão de adicionar narrativa */
+        .btn-add {
+            background-color: #2c2c2c; /* Fundo escuro */
+            color: white; /* Texto branco */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 10px 20px; /* Espaçamento interno */
+            border: none; /* Remove borda */
+            display: inline-block;
+            margin-bottom: 20px; /* Espaçamento abaixo */
+        }
+
+        .btn-add:hover {
+            background-color: #444; /* Fundo mais claro no hover */
+        }
+
+        /* Contêiner para centralizar o botão */
+        .btn-add-container {
+            text-align: left;
+        }
+
+        /* Estilo da tabela */
+        .table th, .table td {
+            text-align: center; /* Centraliza texto e conteúdo */
+            vertical-align: middle; /* Centraliza verticalmente */
+        }
+
+        /* Botão de editar com cor azul */
+        .btn-edit {
+            background-color: #0275d8; /* Azul */
+            color: white; /* Texto branco */
+            border: none; /* Remove borda */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 5px 15px; /* Espaçamento interno */
+        }
+
+        .btn-edit:hover {
+            background-color: #025aa5; /* Azul mais escuro no hover */
+        }
+
+        /* Botão de excluir com cor vermelha */
+        .btn-remove {
+            background-color: #d9534f; /* Vermelho */
+            color: white; /* Texto branco */
+            border: none; /* Remove borda */
+            border-radius: 20px; /* Bordas arredondadas */
+            padding: 5px 15px; /* Espaçamento interno */
+        }
+
+        .btn-remove:hover {
+            background-color: #c9302c; /* Vermelho mais escuro no hover */
+        }
+    </style>
+</head>
