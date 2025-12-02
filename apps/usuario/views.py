@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from .forms import UsuarioForm
 
 def registro(request):
@@ -29,4 +28,4 @@ def autenticacao(request):
 
 def desconectar(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
