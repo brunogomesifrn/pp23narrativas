@@ -8,5 +8,7 @@ class UsuarioForm(UserCreationForm):
                   'cpf', 
                   'nome_completo',
                   'email',
+                  'telefone',
+                  'data_nacimento',
                   'password1',
                   'password2']
