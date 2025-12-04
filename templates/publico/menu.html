@@ -28,7 +28,12 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Sobre</a></li> <!-- Link para página Sobre -->
                 <li class="nav-item"><a class="nav-link" href="{% url 'upload' %}">Upload</a></li> <!-- Link para página de Upload -->
                 <li class="nav-item"><a class="nav-link" href="{% url 'sobre' %}">Contato</a></li> <!-- Link para página de Upload -->
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Logout</a></li> <!-- Link para página de Login -->
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'desconectar' %}">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                 <!-- Link para página de Login -->
             </ul>
             <!-- Avatar do usuário -->
             <div class="user-avatar">
